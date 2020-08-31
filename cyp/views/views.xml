@@ -13,6 +13,18 @@
         </tree>
       </field>
     </record>
+      
+    <record model="ir.ui.view" id="cyp.triangulos_tree">
+      <field name="name">cyp triangulos tree</field>
+      <field name="model">cyp.triangulos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="base"/>
+          <field name="total"/>
+          <field name="altura"/>
+        </tree>
+      </field>
+    </record>
 
 
     <!-- actions opening views on models -->
@@ -22,7 +34,12 @@
       <field name="res_model">cyp.cyp</field>
       <field name="view_mode">tree,form</field>
     </record>
-
+    
+    <record model="ir.actions.act_window" id="cyp.triang">
+      <field name="name">TRIANGULOS</field>
+      <field name="res_model">cyp.triangulos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <!-- server action to the one above -->
 
@@ -48,13 +65,16 @@
 
     <menuitem name="Menu 1" id="cyp.menu_1" parent="cyp.menu_root"/>
     <menuitem name="Menu 2" id="cyp.menu_2" parent="cyp.menu_root"/>
-
+    <menuitem name="Triangulo" id="cyp.menu_triangulos" parent="cyp.menu_root"/>
     <!-- actions -->
 
     <menuitem name="List" id="cyp.menu_1_list" parent="cyp.menu_1"
               action="cyp.action_window"/>
     <menuitem name="Server to list" id="cyp" parent="cyp.menu_2"
               action="cyp.action_server"/>
+     <menuitem name="Calculo" id="triangulos_calculos" parent="cyp.menu_triangulos" 
+               action="cyp.triang"/>
 
+      
   </data>
 </odoo>
