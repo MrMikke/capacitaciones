@@ -26,7 +26,16 @@
       </field>
     </record>
 
-
+    <record model="ir.ui.view" id="cyp.figuras_tree">
+      <field name="name">cyp figuras tree</field>
+      <field name="model">cyp.figuras</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="figura"/>
+        </tree>
+      </field>
+    </record>
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="cyp.action_window">
@@ -38,6 +47,11 @@
     <record model="ir.actions.act_window" id="cyp.triang">
       <field name="name">TRIANGULOS</field>
       <field name="res_model">cyp.triangulos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="cyp.fig">
+      <field name="name">FIGURAS</field>
+      <field name="res_model">cyp.figuras</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -65,6 +79,8 @@
 
     <menuitem name="Menu 1" id="cyp.menu_1" parent="cyp.menu_root"/>
     <menuitem name="Menu 2" id="cyp.menu_2" parent="cyp.menu_root"/>
+     <menuitem name="FIGURAS" id="cyp.menu_3" parent="cyp.menu_root"
+               action="cyp.fig"/> 
     <menuitem name="Triangulo" id="cyp.menu_triangulos" parent="cyp.menu_root"/>
     <!-- actions -->
 

@@ -31,11 +31,16 @@ class cyp(models.Model):
 class cyp_triangulo(models.Model):
     _name = 'cyp.triangulos'
     _description="Modelo para calcular el triangulo"
-    
+    name=fields.Char(
+        string="nombre"
+    )
     base=fields.Float(
         string="base"
     )
-    
+    figuras=fields.Many2one(
+        'cyp.figuras',
+        string="Figuras"
+    )
     total=fields.Float(
         string="total"
     )
@@ -46,4 +51,18 @@ class cyp_triangulo_altura(models.Model):
     altura=fields.Float(
         string="Altura"
     )
+    
+class cyp_figuras(models.Model):
+    _name="cyp.figuras"
+    _description="TOTAL DE FIGURAS"
+    
+    name=fields.Char(
+        string="Nombre de la figura"
+    )
+    figura = fields.One2many(
+        'cyp.triangulos',
+        'figuras',
+        string="Triangulos"
+    )
+
     

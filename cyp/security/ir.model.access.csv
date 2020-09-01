@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_cyp_cyp,cyp.cyp,model_cyp_cyp,,1,1,1,1
 access_cyp_triangulos,cyp.triangulos,model_cyp_triangulos,,1,1,1,1
+access_cyp_figuras,cyp.figuras,model_cyp_figuras,,1,1,1,1
