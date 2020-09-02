@@ -22,6 +22,12 @@
       <field name="res_model">cyp.cyp</field>
       <field name="view_mode">tree,form</field>
     </record>
+      
+      <record model="ir.actions.act_window" id="cyp.action_materias">
+      <field name="name">cyp materias window</field>
+      <field name="res_model">cyp.materias</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
 
     <!-- server action to the one above -->
@@ -48,6 +54,7 @@
 
     <menuitem name="Menu 1" id="cyp.menu_1" parent="cyp.menu_root"/>
     <menuitem name="Menu 2" id="cyp.menu_2" parent="cyp.menu_root"/>
+      <menuitem name="MATERIAS" id="cyp.materias" parent="cyp.menu_root" action="cyp.action_materias"/>
 
     <!-- actions -->
 

@@ -12,13 +12,26 @@ class cyp(models.Model):
     value2 = fields.Float(compute="_value_pc", store=True)
     description = fields.Text()
     
-    @api.constraints('value')
+    # @api.onchange('value')
+    # def _onchange_value(self):
+    #    raise ValidationError("SE REALIZO UN CAMBIO EN EL FIELD VALUE")
+    
+    @api.constrains('value')
     def _constraint_value(self):
         for rec in self:
-            if rec.value==0;
+            if rec.value==0:
                 raise ValidationError("NO PUEDE SER VALOR 0")
 
     @api.depends('value')
     def _value_pc(self):
         for record in self:
             record.value2 = float(record.value) / 100
+
+
+            
+# def herencia_to_cyp(self):
+#     _inherit="cyp.cyp"
+    
+#     nombre_alternativo=fields.Char(
+#         string="NOMBRE ALTERNATIVO"
+#     )
