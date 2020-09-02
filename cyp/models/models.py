@@ -63,11 +63,15 @@ class cyp_figuras(models.Model):
     figura = fields.One2many(
         'cyp.triangulos',
         'figuras',
-        string="Triangulos One2many"
+        string="Triangulos One2many que actua como many2many"
     )
-    figura1 = fields.Many2one(
+    figura2 = fields.Many2one(
         'cyp.triangulos',
         string="Triangulos Many2one"
+    )
+    figura3= fields.Many2many(
+        'cyp.triangulos',
+        string="Triangulos Many2many"
     )
 
     

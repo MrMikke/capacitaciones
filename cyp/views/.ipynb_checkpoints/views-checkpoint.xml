@@ -42,12 +42,13 @@
         <field name="arch" type="xml">
             <form>
                 <label for="name" string="nombre"/>
-                <field name="name"/>
-                <label for="figura" string="triangulos one2many"/>
-                <field name="figura" />
-                <label for="figura1" string="triangulos many2one"/>
-                <field name="figura1"/>
-                
+                <field name="name"/><br/>
+                <label for="figura" string="triangulos one2many que actua como many2many"/>
+                <field name="figura" widget="many2many"/><br/>
+                <label for="figura2" string="triangulos many2one"/>
+                <field name="figura2"/><br/>
+                <label for="figura3" string="triangulos many2many"/>
+                <field name="figura3"/><br/>
             </form>
         </field>
     </record>
