@@ -41,6 +41,7 @@ class cyp_triangulo(models.Model):
         'cyp.figuras',
         string="Figuras"
     )
+    
     total=fields.Float(
         string="total"
     )
@@ -62,7 +63,11 @@ class cyp_figuras(models.Model):
     figura = fields.One2many(
         'cyp.triangulos',
         'figuras',
-        string="Triangulos"
+        string="Triangulos One2many"
+    )
+    figura1 = fields.Many2one(
+        'cyp.triangulos',
+        string="Triangulos Many2one"
     )
 
     

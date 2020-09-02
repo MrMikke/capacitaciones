@@ -36,6 +36,21 @@
         </tree>
       </field>
     </record>
+    <record model="ir.ui.view" id="form_const_contrato_pagos">
+        <field name="name">cyp figuras form</field>
+        <field name="model">cyp.figuras</field>
+        <field name="arch" type="xml">
+            <form>
+                <label for="name" string="nombre"/>
+                <field name="name"/>
+                <label for="figura" string="triangulos one2many"/>
+                <field name="figura" />
+                <label for="figura1" string="triangulos many2one"/>
+                <field name="figura1"/>
+                
+            </form>
+        </field>
+    </record>
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="cyp.action_window">
