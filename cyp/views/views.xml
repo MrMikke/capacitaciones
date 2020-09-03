@@ -13,6 +13,41 @@
         </tree>
       </field>
     </record>
+      
+    <record model="ir.ui.view" id="form_cyp_alumnos">
+        <field name="name">cyp alumnos form</field>
+        <field name="model">cyp.alumnos</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button type="object" name="boton_consulta" string="CLICKEA PARA IMPRIMIR CONSULTA"/>
+                </header>
+                <label for="name" string="nombre"/>
+                <field name="name"/><br/>
+                <label for="alumnos" string="alumnos"/>
+                <field name="alumnos" widget="many2many"/><br/>
+                <label for="alumnos2" string="alumnos many2one"/>
+                <field name="alumnos2"/><br/>
+                <label for="alumnos3" string="alumnos many2many"/>
+                <field name="alumnos3"/><br/>
+                <label for="recursador" string="¿ERES UN RECURSADOR?"/>
+                <field name="recursador"/><br/>
+            </form>
+        </field>
+    </record>
+      
+    <record model="ir.ui.view" id="form_cyp_materias">
+        <field name="name">cyp materias form</field>
+        <field name="model">cyp.materias</field>
+        <field name="arch" type="xml">
+            <form>
+                <label for="name" string="nombre"/>
+                <field name="name"/><br/>
+                <label for="alumno" string="alumnos one2many"/>
+                <field name="alumno" widget="many2many"/><br/>
+            </form>
+        </field>
+    </record>
 
 
     <!-- actions opening views on models -->
@@ -23,9 +58,15 @@
       <field name="view_mode">tree,form</field>
     </record>
       
-      <record model="ir.actions.act_window" id="cyp.action_materias">
+    <record model="ir.actions.act_window" id="cyp.action_materias">
       <field name="name">cyp materias window</field>
       <field name="res_model">cyp.materias</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+      
+    <record model="ir.actions.act_window" id="cyp.action_alumnos">
+      <field name="name">cyp alumnos window</field>
+      <field name="res_model">cyp.alumnos</field>
       <field name="view_mode">tree,form</field>
     </record>
 
@@ -54,7 +95,9 @@
 
     <menuitem name="Menu 1" id="cyp.menu_1" parent="cyp.menu_root"/>
     <menuitem name="Menu 2" id="cyp.menu_2" parent="cyp.menu_root"/>
-      <menuitem name="MATERIAS" id="cyp.materias" parent="cyp.menu_root" action="cyp.action_materias"/>
+    <menuitem name="MATERIAS" id="cyp.materias" parent="cyp.menu_root"/>
+    <menuitem name="ALUMNOS" id="cyp.alumnos" parent="cyp.menu_root"
+                action="cyp.action_alumnos"/>
 
     <!-- actions -->
 
@@ -62,6 +105,8 @@
               action="cyp.action_window"/>
     <menuitem name="Server to list" id="cyp" parent="cyp.menu_2"
               action="cyp.action_server"/>
+      <menuitem name="IR AL TREE DE MATERIAS" id="cyp.sub_menu_materias1" parent="cyp.materias"
+              action="cyp.action_materias"/>
 
   </data>
 </odoo>

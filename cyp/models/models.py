@@ -2,6 +2,8 @@
 
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+import logging
+_logger = logging.getLogger(__name__)
 
 class cyp(models.Model):
     _name = 'cyp.cyp'
@@ -9,7 +11,10 @@ class cyp(models.Model):
 
     name = fields.Char()
     value = fields.Integer()
-    value2 = fields.Float(compute="_value_pc", store=True)
+    value2 = fields.Float(
+        compute="_value_pc",
+        store=True
+    )
     description = fields.Text()
     
     # @api.onchange('value')
@@ -26,8 +31,14 @@ class cyp(models.Model):
     def _value_pc(self):
         for record in self:
             record.value2 = float(record.value) / 100
-
-
+            
+    @api.model
+    def create(self, values):
+        return super(cyp, self).create(values)
+    
+    def write(self, values):
+        _logger.warnig(values)
+        return super(cyp, self).write(values)
             
 # def herencia_to_cyp(self):
 #     _inherit="cyp.cyp"

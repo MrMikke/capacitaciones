@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_cyp_cyp,cyp.cyp,model_cyp_cyp,,1,1,1,1
 access_cyp_materias,cyp.materias,model_cyp_materias,,1,1,1,1
+access_cyp_alumnos,cyp.alumnos,model_cyp_alumnos,,1,1,1,1
