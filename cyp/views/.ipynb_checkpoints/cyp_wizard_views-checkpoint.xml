@@ -27,5 +27,33 @@
                     target="new"
                     context="{'default_valor_active_id':active_id,'default_valor_active_model':active_model}"
                     />
+        
+        <record model="ir.ui.view" id="form_cyp_libros_view">
+                    <field name="name">Wizard cyp libros</field>
+                    <field name="model">cyp.wizard_libros</field>
+                    <field name="arch" type="xml">
+                        <form string="Add Attendees">
+                            <field name="libros" string="Libros"/>
+                            <footer>
+                                <button name="imprimir"
+                                    string="IMPRIMIR" type="object"
+                                    class="btn-primary oe_highlight"
+                                    />
+                                <button string="CERRAR"
+                                    class="btn-default"
+                                    special="cancel" />
+                            </footer>
+                        </form>
+                    </field>
+                </record>
+
+               <act_window id="launch_cyp_wizard_libros"
+                    name="Generar reporte - libros"
+                    binding_model="cyp.libros"
+                    res_model="cyp.wizard_libros"
+                    view_mode="form"
+                    target="new"
+                    context="{'default_valor_active_id':active_id,'default_valor_active_model':active_model}"
+                    />
     </data>
 </odoo>

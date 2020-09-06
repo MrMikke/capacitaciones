@@ -9,7 +9,8 @@ class libreria(models.Model):
     _name="cyp.libreria"
     _description="Este es el modelo para registrar librerías"
     
-    name=fields.Char(
+    name_libreria=fields.Char(
+        string="Nombre",
         required=True
     )
     
@@ -35,7 +36,7 @@ class libros(models.Model):
     _name="cyp.libros"
     _description="ESTE MODELO ES PARA REGISTRAR LIBROS"
     
-    name=fields.Char(
+    name_libro=fields.Char(
         String="Nombre del libro"
     )
     
@@ -57,13 +58,16 @@ class libros(models.Model):
         string="¿Está disponible para préstamo?"
     )
     
-#     def herencia_to_cyp(self):
-#     _inherit="cyp.cyp"
+    def boton_prestamo_true(self):
+        _logger.warning("Se presionó True")
+        for rec in self:
+            rec.disponible_prestamo = True
+        
+    def boton_prestamo_false(self):
+        _logger.warning("Se presionó False")
+        for rec in self:
+            rec.disponible_prestamo = False
     
-#     nombre_alternativo=fields.Char(
-#         string="NOMBRE ALTERNATIVO"
-#     )
-
     @api.constrains('numero_paginas')
     def _constraint_value(self):
         for rec in self:
@@ -72,7 +76,6 @@ class libros(models.Model):
     
     @api.depends('numero_paginas')
     def _calc_promedio_hojas(self):
-        _logger.warning("Ejecutó _calc_promedio_hojas")
         for record in self:
             record.promedio_paginas = float(record.numero_paginas) / 2
             
@@ -82,4 +85,20 @@ class herencia_to_libros(models.Model):
     aplicando_herencia=fields.Char(
         string="Aplicando herencia"
     )
+
+class const_wizard_libros(models.TransientModel):
+    _name = 'cyp.wizard_libros'
+    _description = "Wizard para libros para reportes"
     
+    valor_active_id=fields.Char(
+        string="Valor del active id"
+    )
+    
+    valor_active_models=fields.Char(
+        string="Valor del active model"
+    )
+    
+    libros=fields.Many2many(
+        'cyp.libros',
+        string="Alumnos"
+    )
