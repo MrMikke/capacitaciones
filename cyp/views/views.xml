@@ -145,10 +145,11 @@
     <menuitem name="MATERIAS" id="cyp.materias" parent="cyp.menu_root"/>
     <menuitem name="ALUMNOS" id="cyp.alumnos" parent="cyp.menu_root"
                 action="cyp.action_alumnos"/>
-    <menuitem name="Librería" id="cyp.libreria" parent="cyp.menu_root"
+    <menuitem name="Biblioteca" id="cyp.biblioteca" parent="cyp.menu_root"/>
+<!--     <menuitem name="Librería" id="cyp.libreria" parent="cyp.menu_root"
                 action="cyp.action_libreria"/>
     <menuitem name="Libros" id="cyp.libros" parent="cyp.menu_root"
-                action="cyp.action_libros"/>
+                action="cyp.action_libros"/> -->
 
     <!-- actions -->
 
@@ -156,8 +157,12 @@
               action="cyp.action_window"/>
     <menuitem name="Server to list" id="cyp" parent="cyp.menu_2"
               action="cyp.action_server"/>
-      <menuitem name="IR AL TREE DE MATERIAS" id="cyp.sub_menu_materias1" parent="cyp.materias"
+    <menuitem name="IR AL TREE DE MATERIAS" id="cyp.sub_menu_materias1" parent="cyp.materias"
               action="cyp.action_materias"/>
+    <menuitem name="Librería" id="cyp.sub_menu_libreria" parent="cyp.biblioteca"
+              action="cyp.action_libreria"/>
+    <menuitem name="Libros" id="cyp.sub_menu_libros" parent="cyp.biblioteca"
+              action="cyp.action_libros"/>
 
   </data>
 </odoo>
