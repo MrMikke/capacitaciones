@@ -9,7 +9,7 @@ class libreria(models.Model):
     _name="cyp.libreria"
     _description="Este es el modelo para registrar librerías"
     
-    name_libreria=fields.Char(
+    name=fields.Char(
         required=True
     )
     
@@ -35,7 +35,7 @@ class libros(models.Model):
     _name="cyp.libros"
     _description="ESTE MODELO ES PARA REGISTRAR LIBROS"
     
-    name_libro=fields.Char(
+    name=fields.Char(
         String="Nombre del libro"
     )
     
