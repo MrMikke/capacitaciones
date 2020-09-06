@@ -79,6 +79,8 @@
                 <field name="promedio_paginas"/><br/>
                 <label for="disponible_prestamo" string="¿Está disponible para préstamo?"/>
                 <field name="disponible_prestamo"/><br/>
+                <label for="aplicando_herencia" string="Aplicando herencia"/>
+                <field name="aplicando_herencia"/><br/>
             </form>
         </field>
     </record>

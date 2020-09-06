@@ -63,7 +63,7 @@ class libros(models.Model):
 #     nombre_alternativo=fields.Char(
 #         string="NOMBRE ALTERNATIVO"
 #     )
-    
+
     @api.constrains('numero_paginas')
     def _constraint_value(self):
         for rec in self:
@@ -75,3 +75,11 @@ class libros(models.Model):
         _logger.warning("Ejecutó _calc_promedio_hojas")
         for record in self:
             record.promedio_paginas = float(record.numero_paginas) / 2
+            
+class herencia_to_libros(models.Model):
+    _inherit="cyp.libros"
+
+    aplicando_herencia=fields.Char(
+        string="Aplicando herencia"
+    )
+    
