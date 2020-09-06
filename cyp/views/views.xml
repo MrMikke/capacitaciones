@@ -48,6 +48,40 @@
             </form>
         </field>
     </record>
+      
+    <record model="ir.ui.view" id="form_cyp_libreria">
+        <field name="name">cyp libreria form</field>
+        <field name="model">cyp.libreria</field>
+        <field name="arch" type="xml">
+            <form>
+                <label for="name_libreria" string="Nombre de la librería"/>
+                <field name="name_libreria"/><br/>
+                <label for="name_encargado" string="Nombre del encargado de la librería"/>
+                <field name="name_encargado"/><br/>
+                <label for="libros" string="Libros"/>
+                <field name="libros" widget="many2many"/><br/>
+            </form>
+        </field>
+    </record>
+      
+    <record model="ir.ui.view" id="form_cyp_libros">
+        <field name="name">cyp libros form</field>
+        <field name="model">cyp.libros</field>
+        <field name="arch" type="xml">
+            <form>
+                <label for="name_libro" string="Nombre del libro"/>
+                <field name="name_libro"/><br/>
+                <label for="name_autor" string="Nombre del autor"/>
+                <field name="name_autor"/><br/>
+                <label for="numero_paginas" string="Número de páginas"/>
+                <field name="numero_paginas"/><br/>
+                <label for="promedio_paginas" string="Número promedio de páginas"/>
+                <field name="promedio_paginas"/><br/>
+                <label for="disponible_prestamo" string="¿Está disponible para préstamo?"/>
+                <field name="disponible_prestamo"/><br/>
+            </form>
+        </field>
+    </record>
 
 
     <!-- actions opening views on models -->
@@ -69,7 +103,18 @@
       <field name="res_model">cyp.alumnos</field>
       <field name="view_mode">tree,form</field>
     </record>
-
+      
+    <record model="ir.actions.act_window" id="cyp.action_libreria">
+      <field name="name">cyp libreria window</field>
+      <field name="res_model">cyp.libreria</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+      
+    <record model="ir.actions.act_window" id="cyp.action_libros">
+      <field name="name">cyp libros window</field>
+      <field name="res_model">cyp.libros</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <!-- server action to the one above -->
 
@@ -98,6 +143,10 @@
     <menuitem name="MATERIAS" id="cyp.materias" parent="cyp.menu_root"/>
     <menuitem name="ALUMNOS" id="cyp.alumnos" parent="cyp.menu_root"
                 action="cyp.action_alumnos"/>
+    <menuitem name="Librería" id="cyp.libreria" parent="cyp.menu_root"
+                action="cyp.action_libreria"/>
+    <menuitem name="Libros" id="cyp.libros" parent="cyp.menu_root"
+                action="cyp.action_libros"/>
 
     <!-- actions -->
 

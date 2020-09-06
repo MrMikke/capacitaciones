@@ -37,12 +37,12 @@ class cyp(models.Model):
         return super(cyp, self).create(values)
     
     def write(self, values):
-        _logger.warnig(values)
+        _logger.warning(values)
         return super(cyp, self).write(values)
             
-# def herencia_to_cyp(self):
-#     _inherit="cyp.cyp"
+def herencia_to_cyp(self):
+    _inherit="cyp.cyp"
     
-#     nombre_alternativo=fields.Char(
-#         string="NOMBRE ALTERNATIVO"
-#     )
+    nombre_alternativo=fields.Char(
+        string="NOMBRE ALTERNATIVO"
+    )
