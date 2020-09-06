@@ -82,10 +82,30 @@
                 <button type="object" name="boton_prestamo_true" string="Marcar disponible"/>
                 <button type="object" name="boton_prestamo_false" string="Marcar como no disponible"/><br/>
                 <label for="aplicando_herencia" string="Aplicando herencia"/>
-                <field name="aplicando_herencia"/><br/>
+                <field name="aplicando_herencia"/><br/><br/>
             </form>
         </field>
     </record>
+      
+    <record id="view_cyp_report_wizard" model="ir.ui.view">
+            <field name="name">cyp Report</field>
+            <field name="model">cyp.report</field>
+            <field name="arch" type="xml">
+                <form string="Choose The Details">
+                    <group>
+                        <group>
+                            <field name="date_from" />
+                            <field name="date_to"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="cyp.report" string="Print" type="object" class="oe_highlight" />
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
 
 
     <!-- actions opening views on models -->
@@ -119,6 +139,12 @@
       <field name="res_model">cyp.libros</field>
       <field name="view_mode">tree,form</field>
     </record>
+      
+    <record model="ir.actions.act_window" id="cyp.action_report">
+      <field name="name">cyp Report</field>
+      <field name="res_model">cyp.report</field>
+      <field name="view_mode">tree,form</field>
+    </record>
 
     <!-- server action to the one above -->
 
@@ -148,6 +174,8 @@
     <menuitem name="ALUMNOS" id="cyp.alumnos" parent="cyp.menu_root"
                 action="cyp.action_alumnos"/>
     <menuitem name="Biblioteca" id="cyp.biblioteca" parent="cyp.menu_root"/>
+    <menuitem name="cyp Report" id="cyp.report" parent="cyp.menu_root"
+                action="cyp.action_report"/>
 
     <!-- actions -->
 
