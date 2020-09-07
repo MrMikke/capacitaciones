@@ -1,79 +1,63 @@
 <odoo>
-    <data>
-<!--         <record model="ir.ui.view" id="form_cyp_alumnos_view">
-                    <field name="name">Wizard cyp alumnos</field>
-                    <field name="model">cyp.wizard_alumnos</field>
-                    <field name="arch" type="xml">
-                        <form string="Add Attendees">
-                            <field name="alumnos" string="Alumnos"/>
-                            <footer>
-                                <button name="imprimir"
-                                    string="IMPRIMIR" type="object"
-                                    class="btn-primary oe_highlight"
-                                    />
-                                <button string="CERRAR"
-                                    class="btn-default"
-                                    special="cancel" />
-                            </footer>
-                        </form>
-                    </field>
-                </record>
+    <data>    
+        <record model="ir.ui.view" id="form_cyp_alumnos_view">
+            <field name="name">Wizard cyp alumnos</field>
+            <field name="model">cyp.wizard_alumnos</field>
+            <field name="arch" type="xml">
+                <form string="Add Attendees">
+                    <field name="alumnos" string="Alumnos"/>
+                    <field name="valor_active_id" string="valor_active_id"/>
+                    <field name="valor_active_models" string="valor_active_model"/>
+                    <footer>
+                        <button name="imprimir"
+                            string="IMPRIMIR" type="object"
+                            class="btn-primary oe_highlight"
+                        />
+                        <button string="CERRAR"
+                            class="btn-default"
+                            special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
 
-               <act_window id="launch_cyp_wizard_alumnos"
+        <act_window id="launch_cyp_wizard_alumnos"
                     name="Generar reporte - alumnos"
                     binding_model="cyp.alumnos"
                     res_model="cyp.wizard_alumnos"
                     view_mode="form"
                     target="new"
-                    context="{'default_valor_active_id':active_id,'default_valor_active_model':active_model}"
-                    /> -->
+                    context="{'default_valor_active_id':active_id,'default_valor_active_models':active_model}"
+                    />
         
-<!--         <record model="ir.ui.view" id="form_cyp_libros_view">
-                    <field name="name">Wizard cyp libros</field>
-                    <field name="model">cyp.wizard_libros</field>
-                    <field name="arch" type="xml">
-                        <form string="Add Attendees">
-                            <field name="libros" string="Libros"/>
-                            <footer>
-                                <button name="imprimir"
-                                    string="IMPRIMIR" type="object"
-                                    class="btn-primary oe_highlight"
-                                    />
-                                <button string="CERRAR"
-                                    class="btn-default"
-                                    special="cancel" />
-                            </footer>
-                        </form>
-                    </field>
-                </record>
+        <record model="ir.ui.view" id="form_cyp_libros_view">
+            <field name="name">Wizard cyp libros</field>
+            <field name="model">cyp.wizard_libros</field>
+            <field name="arch" type="xml">
+                <form string="Add Attendees">
+                    <field name="libros" string="libros"/>
+                    <field name="valor_active_id" string="valor_active_id"/>
+                    <field name="valor_active_model" string="valor_active_model"/>
+                    <footer>
+                        <button name="imprimir"
+                            string="IMPRIMIR" type="object"
+                            class="btn-primary oe_highlight"
+                        />
+                        <button string="CERRAR"
+                            class="btn-default"
+                            special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
 
-               <act_window id="launch_cyp_wizard_libros"
+        <act_window id="launch_cyp_wizard_libros"
                     name="Generar reporte - libros"
                     binding_model="cyp.libros"
                     res_model="cyp.wizard_libros"
                     view_mode="form"
                     target="new"
                     context="{'default_valor_active_id':active_id,'default_valor_active_model':active_model}"
-                    /> -->
-        
-        <record id="view_cyp_report_wizard" model="ir.ui.view">
-            <field name="name">cyp Report</field>
-            <field name="model">cyp.report</field>
-            <field name="arch" type="xml">
-                <form string="Choose The Details">
-                    <group>
-                        <group>
-                            <field name="date_from" />
-                            <field name="date_to"/>
-                        </group>
-                    </group>
-                    <footer>
-                        <button name="cyp_report" string="Print" type="object" class="oe_highlight" />
-                        or
-                        <button string="Cancel" class="oe_link" special="cancel"/>
-                    </footer>
-                </form>
-            </field>
-        </record>
+                    />
     </data>
 </odoo>

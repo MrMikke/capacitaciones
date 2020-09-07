@@ -86,25 +86,19 @@ class herencia_to_libros(models.Model):
         string="Aplicando herencia"
     )
 
-# class const_wizard_libros(models.TransientModel):
-#     _name = 'cyp.wizard_libros'
-#     _description = "Wizard para libros para reportes"
+class const_wizard_libros(models.TransientModel):
+    _name = 'cyp.wizard_libros'
+    _description = "Wizard para libros para reportes"
     
-#     valor_active_id=fields.Char(
-#         string="Valor del active id"
-#     )
+    valor_active_id=fields.Char(
+        string="Valor del active id"
+    )
     
-#     valor_active_models=fields.Char(
-#         string="Valor del active model"
-#     )
+    valor_active_model=fields.Char(
+        string="Valor del active model"
+    )
     
-#     libros=fields.Many2many(
-#         'cyp.libros',
-#         string="Alumnos"
-#     )
-
-class TestReport(models.TransientModel):
-    _name = 'cyp.report'
-
-    date_from = fields.Date(string='From')
-    date_to = fields.Date(string='To')
+    libros=fields.Many2many(
+        'cyp.libros',
+        string="Alumnos"
+    )

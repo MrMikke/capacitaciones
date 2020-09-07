@@ -87,26 +87,16 @@
         </field>
     </record>
       
-    <record id="view_cyp_report_wizard" model="ir.ui.view">
-            <field name="name">cyp Report</field>
-            <field name="model">cyp.report</field>
-            <field name="arch" type="xml">
-                <form string="Choose The Details">
-                    <group>
-                        <group>
-                            <field name="date_from" />
-                            <field name="date_to"/>
-                        </group>
-                    </group>
-                    <footer>
-                        <button name="cyp.report" string="Print" type="object" class="oe_highlight" />
-                        or
-                        <button string="Cancel" class="oe_link" special="cancel"/>
-                    </footer>
-                </form>
-            </field>
-        </record>
-
+    <record model="ir.ui.view" id="cyp.libros">
+      <field name="name">cyp libros tree</field>
+      <field name="model">cyp.libros</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name_libro"/>
+          <field name="name_autor"/>
+        </tree>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
 
@@ -140,11 +130,11 @@
       <field name="view_mode">tree,form</field>
     </record>
       
-    <record model="ir.actions.act_window" id="cyp.action_report">
+<!--     <record model="ir.actions.act_window" id="cyp.action_report">
       <field name="name">cyp Report</field>
       <field name="res_model">cyp.report</field>
       <field name="view_mode">tree,form</field>
-    </record>
+    </record> -->
 
     <!-- server action to the one above -->
 
@@ -174,19 +164,23 @@
     <menuitem name="ALUMNOS" id="cyp.alumnos" parent="cyp.menu_root"
                 action="cyp.action_alumnos"/>
     <menuitem name="Biblioteca" id="cyp.biblioteca" parent="cyp.menu_root"/>
-    <menuitem name="cyp Report" id="cyp.report" parent="cyp.menu_root"
+<!--     <menuitem name="cyp Report" id="cyp.report" parent="cyp.menu_root"
                 action="cyp.action_report"/>
-
+ -->
     <!-- actions -->
 
     <menuitem name="List" id="cyp.menu_1_list" parent="cyp.menu_1"
               action="cyp.action_window"/>
+      
     <menuitem name="Server to list" id="cyp" parent="cyp.menu_2"
               action="cyp.action_server"/>
+      
     <menuitem name="IR AL TREE DE MATERIAS" id="cyp.sub_menu_materias1" parent="cyp.materias"
               action="cyp.action_materias"/>
+      
     <menuitem name="Librería" id="cyp.sub_menu_libreria" parent="cyp.biblioteca"
               action="cyp.action_libreria"/>
+      
     <menuitem name="Libros" id="cyp.sub_menu_libros" parent="cyp.biblioteca"
               action="cyp.action_libros"/>
 
