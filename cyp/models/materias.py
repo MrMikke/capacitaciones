@@ -43,7 +43,8 @@ class alumnos(models.Model):
     alumnos = fields.One2many(
         'cyp.materias',
         'alumno',
-        string="MATERIAS"
+        string="MATERIAS",
+#         domain="[('id','!=','1')]"
     )
 #     alumnos2 = fields.Many2one(
 #         'cyp.materias',
@@ -72,6 +73,14 @@ class alumnos(models.Model):
             
 #             _logger.warning(consulta_bd)
 
+class herencia_vista(models.Model):
+    _inherit="cyp.alumnos"
+    _description="Este modelo es para crear un nuevo formulario y este añadirlo a una vista que ya esta hecha aplicando herencia"
+    
+    campo_herencia=fields.Char(
+        string="Campo de herencia por vista"
+    )
+    
 class const_wizard_alumnos(models.TransientModel):
     _name = 'cyp.wizard_alumnos'
     _description = "Wizard para alumnos para reportes"

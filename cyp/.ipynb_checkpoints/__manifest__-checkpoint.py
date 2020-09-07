@@ -27,7 +27,8 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
-        'views/cyp_wizard_views.xml'
+        'views/cyp_wizard_views.xml',
+        'views/herencia_vista.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

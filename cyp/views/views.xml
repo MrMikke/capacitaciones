@@ -53,7 +53,7 @@
                             <label for="recursador" string="¿ES UN RECURSADOR?"/>
                             <field name="recursador"/><br/>
                         <notebook>
-                            <page string="Pestaña 1">
+                            <page string="Pestaña 1" id="page_1">
                                 <p>ESTA EN LA PESTAÑA 1</p>
                             </page>
                             <page string="Pestaña 2">
