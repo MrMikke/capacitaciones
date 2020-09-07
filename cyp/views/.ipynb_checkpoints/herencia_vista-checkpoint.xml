@@ -11,16 +11,16 @@
                     <field name="campo_herencia" string="campo añadido por herencia usando xpath"/><br/>
                 </xpath> -->
                 <!-- SEGUNDO XPATH PONE EL CAMPO Y LABEL DESPUES DEL LABEL DEL CAMPO NAME -->
-                <xpath expr="//field[@name='name']" position="after">
+<!--                 <xpath expr="//field[@name='name']" position="after">
                     <br/>
                     <label for="campo_herencia" string="campo añadido por herencia usando xpath"/>
                     <field name="campo_herencia" string="campo añadido por herencia usando xpath"/><br/>
-                </xpath>
+                </xpath> -->
                 <!-- TERCER XPATH PONE EL CAMPO Y LABEL EN EL PAGE 1 -->
-<!--                 <xpath expr="//page[1]" position="inside">
+                <xpath expr="//page[1]" position="inside">
                     <label for="campo_herencia" string="campo añadido por herencia usando xpath"/>
                     <field name="campo_herencia" string="campo añadido por herencia usando xpath"/>
-                </xpath> -->
+                </xpath>
 
             </field>
         </record>

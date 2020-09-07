@@ -28,7 +28,8 @@
         'views/views.xml',
         'views/templates.xml',
         'views/cyp_wizard_views.xml',
-        'views/herencia_vista.xml'
+        'views/herencia_vista.xml',
+        'reports/cyp_alumnos_report.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -40,6 +40,9 @@ class alumnos(models.Model):
     recursador=fields.Boolean(
         string="¿Es recursador?"
     )
+    recursador=fields.Boolean(
+        string="¿Es recursador?"
+    )
     alumnos = fields.One2many(
         'cyp.materias',
         'alumno',
@@ -81,7 +84,7 @@ class herencia_vista(models.Model):
         string="Campo de herencia por vista"
     )
     
-class const_wizard_alumnos(models.TransientModel):
+class cyp_wizard_alumnos(models.TransientModel):
     _name = 'cyp.wizard_alumnos'
     _description = "Wizard para alumnos para reportes"
     
@@ -95,5 +98,11 @@ class const_wizard_alumnos(models.TransientModel):
         'cyp.alumnos',
         string="Alumnos"
     )
+    
+    def imprimir(self):
+        for rec in self:
+            return self.env.ref('cyp.cyp_wizard_alumnos_report').report_action(self)
+    
+    
     
     
