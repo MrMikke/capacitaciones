@@ -45,13 +45,20 @@ class alumnos(models.Model):
         'alumno',
         string="MATERIAS"
     )
-    alumnos2 = fields.Many2one(
-        'cyp.materias',
-        string="Alumnos2"
-    )
-    alumnos3 = fields.Many2many(
-        'cyp.materias',
-        string="Alumnos3"
+#     alumnos2 = fields.Many2one(
+#         'cyp.materias',
+#         string="Alumnos2"
+#     )
+#     alumnos3 = fields.Many2many(
+#         'cyp.materias',
+#         string="Alumnos3"
+#     )
+    def _calc_cyp_materias_count(self):
+        for rec in self:
+            rec.cyp_materias_count = rec.env['cyp.materias'].search_count([('alumno','=',rec.id)])
+    cyp_materias_count = fields.Integer(
+        string="Contador de Materias", 
+        compute="_calc_cyp_materias_count"
     )
     def boton_consulta(self):
         for rec in self:

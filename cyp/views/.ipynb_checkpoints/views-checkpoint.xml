@@ -13,28 +13,69 @@
         </tree>
       </field>
     </record>
-
+    <record id="act_cyp_alumno_2_cyp_materias" model="ir.actions.act_window">
+      <field name="name">Materias</field>
+      <field name="res_model">cyp.materias</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">
+        {
+          'search_default_alumno': active_id, 
+          'default_alumno': active_id,
+        }
+      </field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          No hay materias para este alumno aún...
+        </p>
+      </field>
+    </record>
     <record model="ir.ui.view" id="form_cyp_alumnos">
         <field name="name">cyp alumnos form</field>
         <field name="model">cyp.alumnos</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-                    <button type="object" name="boton_consulta" string="CLICKEA PARA IMPRIMIR CONSULTA"/>
-                </header>
-                <label for="name" string="nombre"/>
-                <field name="name" /><br/>
-                <label for="alumnos" string="ALUMNOS"/>
-                <field name="alumnos" widget="many2many"/><br/>
-                <label for="alumnos2" string="Alumno many2one"/>
-                <field name="alumnos2"/><br/>
-                <label for="alumnos3" string="Alumno many2many"/>
-                <field name="alumnos3"/><br/>
-                <label for="recursador" string="¿ES UN RECURSADOR?"/>
-                <field name="recursador"/><br/>
+                
+                <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="%(cyp.act_cyp_alumno_2_cyp_materias)d" type="action" icon="fa-book" ><!--fa-building-->
+                                <field string="Materias" name="cyp_materias_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                    
+                            <label for="name" string="nombre"/>
+                            <field name="name" /><br/>
+                            <label for="alumnos" string="ALUMNOS"/>
+                            <field name="alumnos" widget="many2many"/><br/>
+        <!--                     <label for="alumnos2" string="Alumno many2one"/>
+                            <field name="alumnos2"/><br/>
+                            <label for="alumnos3" string="Alumno many2many"/>
+                            <field name="alumnos3"/><br/> -->
+                            <label for="recursador" string="¿ES UN RECURSADOR?"/>
+                            <field name="recursador"/><br/>
+                        <notebook>
+                            <page string="Pestaña 1">
+                                <p>ESTA EN LA PESTAÑA 1</p>
+                            </page>
+                            <page string="Pestaña 2">
+                                <p>ESTA EN LA PESTAÑA 2</p>
+                            </page>
+                        </notebook>
+               </sheet>
             </form>
         </field>
     </record>
+      
+    <record id="search_cyp_materias" model="ir.ui.view">
+      <field name="name">Search cyp materias</field>
+      <field name="model">cyp.materias</field>
+      <field name="arch" type="xml">
+        <search string="Search">
+          <field name="alumno" string="Alumno"/>
+            
+        </search>
+      </field>
+    </record>
+    <!-- FIN SEARCH -->
      <record model="ir.ui.view" id="form_cyp_materias">
         <field name="name">cyp materias form</field>
         <field name="model">cyp.materias</field>
@@ -51,7 +92,22 @@
     </record>
       
     <!-- actions opening views on models -->
-
+    <record id="act_cyp_alumno_2_cyp_materias" model="ir.actions.act_window">
+      <field name="name">Materias</field>
+      <field name="res_model">cyp.materias</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">
+        {
+          'search_default_alumno': active_id, 
+          'default_alumno': active_id,
+        }
+      </field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          No hay materias para este alumno aún...
+        </p>
+      </field>
+    </record>
     <record model="ir.actions.act_window" id="cyp.action_window">
       <field name="name">cyp window</field>
       <field name="res_model">cyp.cyp</field>
