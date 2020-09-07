@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="herencia_vista_repace_alumnos_form">
+            <field name="name">herencia vista</field>
+            <field name="model">cyp.alumnos</field>
+            <field name="inherit_id" ref="cyp.form_cyp_alumnos" />
+            <field name="arch" type="xml">
+                <!-- PRIMER XPATH PONE EL CAMPO Y LABEL ANTES DEL LABEL DEL CAMPO NAME -->
+<!--                 <xpath expr="//label[@for='name']" position="before">
+                    <label for="campo_herencia" string="campo añadido por herencia usando xpath"/>
+                    <field name="campo_herencia" string="campo añadido por herencia usando xpath"/><br/>
+                </xpath> -->
+                <!-- SEGUNDO XPATH PONE EL CAMPO Y LABEL DESPUES DEL LABEL DEL CAMPO NAME -->
+<!--                 <xpath expr="//field[@name='name']" position="after">
+                    <br/>
+                    <label for="campo_herencia" string="campo añadido por herencia usando xpath"/>
+                    <field name="campo_herencia" string="campo añadido por herencia usando xpath"/><br/>
+                </xpath> -->
+                <!-- TERCER XPATH PONE EL CAMPO Y LABEL EN EL PAGE 1 -->
+                <xpath expr="//page[1]" position="inside">
+                    <label for="campo_herencia" string="campo añadido por herencia usando xpath"/>
+                    <field name="campo_herencia" string="campo añadido por herencia usando xpath"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

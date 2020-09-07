@@ -7,7 +7,7 @@
                 <form string="Add Attendees">
                     <field name="alumnos" string="Alumnos"/>
                     <field name="valor_active_id" string="valor_active_id"/>
-                    <field name="valor_active_models" string="valor_active_model"/>
+                    <field name="valor_active_model" string="valor_active_model"/>
                     <footer>
                         <button name="imprimir"
                             string="IMPRIMIR" type="object"
@@ -27,7 +27,7 @@
                     res_model="cyp.wizard_alumnos"
                     view_mode="form"
                     target="new"
-                    context="{'default_valor_active_id':active_id,'default_valor_active_models':active_model}"
+                    context="{'default_valor_active_id':active_id,'default_valor_active_model':active_model}"
                     />
         
         <record model="ir.ui.view" id="form_cyp_libros_view">

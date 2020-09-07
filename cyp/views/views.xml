@@ -14,24 +14,56 @@
       </field>
     </record>
       
+    <record id="act_cyp_alumno_2_cyp_materias" model="ir.actions.act_window">
+      <field name="name">Materias</field>
+      <field name="res_model">cyp.materias</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">
+        {
+          'search_default_alumno': active_id, 
+          'default_alumno': active_id,
+        }
+      </field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          No hay materias para este alumno aún...
+        </p>
+      </field>
+    </record>
+      
     <record model="ir.ui.view" id="form_cyp_alumnos">
         <field name="name">cyp alumnos form</field>
         <field name="model">cyp.alumnos</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-                    <button type="object" name="boton_consulta" string="CLICKEA PARA IMPRIMIR CONSULTA"/>
-                </header>
-                <label for="name" string="nombre"/>
-                <field name="name"/><br/>
-                <label for="alumnos" string="alumnos"/>
-                <field name="alumnos" widget="many2many"/><br/>
-                <label for="alumnos2" string="alumnos many2one"/>
-                <field name="alumnos2"/><br/>
-                <label for="alumnos3" string="alumnos many2many"/>
-                <field name="alumnos3"/><br/>
-                <label for="recursador" string="¿ERES UN RECURSADOR?"/>
-                <field name="recursador"/><br/>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="%(cyp.act_cyp_alumno_2_cyp_materias)d" type="action" icon="fa-book" >
+                            <field string="Materias" name="cyp_materias_count" widget="statinfo"/>
+                        </button>
+                    </div>
+<!--                     <header>
+                        <button type="object" name="boton_consulta" string="CLICKEA PARA IMPRIMIR CONSULTA"/>
+                    </header> -->
+                    <label for="name" string="nombre"/>
+                    <field name="name"/><br/>
+                    <label for="alumnos" string="alumnos"/>
+                    <field name="alumnos" widget="many2many" domain="[('id','!=','1')]"/><br/>
+                    <label for="alumnos2" string="alumnos many2one"/>
+                    <field name="alumnos2"/><br/>
+                    <label for="alumnos3" string="alumnos many2many"/>
+                    <field name="alumnos3"/><br/>
+                    <label for="recursador" string="¿ERES UN RECURSADOR?"/>
+                    <field name="recursador"/><br/>
+                    <notebook>
+                        <page string="Pestaña 1" id="page_1">
+                            <p>ESTA ES LA PESTAÑA 1</p>
+                        </page>
+                        <page string="Pestaña 2" id="page_2">
+                            <p>ESTA ES LA PESTAÑA 2</p>
+                        </page>
+                    </notebook>
+                </sheet>
             </form>
         </field>
     </record>
@@ -48,6 +80,17 @@
             </form>
         </field>
     </record>
+      
+    <record model="ir.ui.view" id="search_cyp_materias">
+        <field name="name">Search cyp materias</field>
+        <field name="model">cyp.materias</field>
+        <field name="arch" type="xml">
+            <search string="Search">
+                <field name="alumno" string="Alumno"/>
+            </search>
+        </field>
+    </record>
+<!--       FIN SEARCH -->
       
     <record model="ir.ui.view" id="form_cyp_libreria">
         <field name="name">cyp libreria form</field>
@@ -69,20 +112,31 @@
         <field name="model">cyp.libros</field>
         <field name="arch" type="xml">
             <form>
-                <label for="name_libro" string="Nombre del libro"/>
-                <field name="name_libro"/><br/>
-                <label for="name_autor" string="Nombre del autor"/>
-                <field name="name_autor"/><br/>
-                <label for="numero_paginas" string="Número de páginas"/>
-                <field name="numero_paginas"/><br/>
-                <label for="promedio_paginas" string="Número promedio de páginas"/>
-                <field name="promedio_paginas"/><br/>
-                <label for="disponible_prestamo" string="¿Está disponible para préstamo?"/>
-                <field name="disponible_prestamo"/><br/>
-                <button type="object" name="boton_prestamo_true" string="Marcar disponible"/>
-                <button type="object" name="boton_prestamo_false" string="Marcar como no disponible"/><br/>
-                <label for="aplicando_herencia" string="Aplicando herencia"/>
-                <field name="aplicando_herencia"/><br/><br/>
+                <sheet>
+                    <label for="name_libro" string="Nombre del libro"/>
+                    <field name="name_libro"/><br/>
+                    <label for="name_autor" string="Nombre del autor"/>
+                    <field name="name_autor"/><br/>
+                    <label for="numero_paginas" string="Número de páginas"/>
+                    <field name="numero_paginas"/><br/>
+                    <label for="promedio_paginas" string="Número promedio de páginas"/>
+                    <field name="promedio_paginas"/><br/>
+                    <label for="disponible_prestamo" string="¿Está disponible para préstamo?"/>
+                    <field name="disponible_prestamo"/><br/>
+                    <button type="object" name="boton_prestamo_true" string="Marcar disponible"/>
+                    <button type="object" name="boton_prestamo_false" string="Marcar como no disponible"/><br/>
+                    <label for="aplicando_herencia" string="Aplicando herencia"/>
+                    <field name="aplicando_herencia"/><br/><br/>
+                    
+                    <notebook>
+                        <page string="Pestaña 1" id="page_1">
+                            <p>ESTA ES LA PESTAÑA 1</p>
+                        </page>
+                        <page string="Pestaña 2" id="page_2">
+                            <p>ESTA ES LA PESTAÑA 2</p>
+                        </page>
+                    </notebook>
+                </sheet>
             </form>
         </field>
     </record>

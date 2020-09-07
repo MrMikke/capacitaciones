@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <report
+            id="cyp_wizard_alumnos_report"
+            model="cyp.wizard_alumnos"
+            string="Wizard Alumnos"
+            report_type="qweb-pdf"
+            name="cyp.cyp_wizard_alumnos"
+            file="cyp.cyp_wizard_alumnos_report"
+            attachment_use="True"
+            print_report_name="(object.id)"
+            paperformat="base.paperformat_us"
+        />
+        
+        <template id="cyp_wizard_alumnos">
+            <t t-call="web.html_container">
+                
+              <t t-foreach="docs" t-as="doc">
+                  <div class="header">
+                      <span>
+                          ESTE ES UN HEADER HOLA
+                      </span>
+                  </div>
+                  <!-- VARIABLE DE STRING -->
+                  <t t-set="mi_variable" t-value="HOLA"/>
+                  <!-- VARIABLE NUMERICA -->
+                  <t t-set="mi_variable2" t-value="0.00"/>
+                  <!-- CONDICION -->
+                  <t t-esc="mi_variable"/>
+                  <t t-if="mi_variable=='HOLA'">
+                      <t t-set="mi_variable" t-value="CONDICION_TRUE"/>
+                      
+                  </t>
+                  <t t-else="">
+                      <t t-set="mi_variable" t-value="CONDICION_FALSE"/>
+                  </t>
+                  <span><t t-esc="mi_variable"/></span>
+                  <span><t t-esc="doc.valor_active_id"/></span>
+                  <span><t t-esc="doc.valor_active_model"/></span>
+                  <!--  CICLO  -->
+                  <t t-foreach="doc.alumnos" t-as="alumno">
+                      <div style="color:red"><t t-esc="alumno.name"/></div>
+                      <t t-foreach="alumno.alumnos" t-as="materias">
+                          <span>
+                              <t t-esc="materias.name"/>
+                          </span>
+                      </t>
+                  </t>
+              </t>
+          </t>
+        </template>
+    </data>
+</odoo>

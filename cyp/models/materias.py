@@ -36,10 +36,19 @@ class alumnos(models.Model):
         string="¿Eres recursador?"
     )
     
+    def _calc_cyp_materias_count(self):
+        for rec in self:
+            rec.cyp_materias_count = rec.env['cyp.materias'].search_count([('alumno','=',rec.id)])
+    cyp_materias_count = fields.Integer(
+        string="Contador de Materias", 
+        compute="_calc_cyp_materias_count"
+    )
+    
     alumnos=fields.One2many(
         'cyp.materias',
         'alumno',
-        string="MATERIAS"
+        string="MATERIAS",
+#         domain="[('id','!=', '1')]"
     )
     
     alumnos2=fields.Many2one(
@@ -61,8 +70,15 @@ class alumnos(models.Model):
                 for consulta_materias in consulta.alumnos:
                     _logger.warning("ID " + str(consulta_materias.name))
 
+class herencia_visa(models.Model):
+    _inherit = "cyp.alumnos"
+    _description="Este es un modelo para crear un nuevo formulario y este añadirlo a una vista que ya está hecha aplicando herenncia"
+    
+    campo_herencia=fields.Char(
+        string="Campo de herencia por vista"
+    )
             
-class const_wizard_alumnos(models.TransientModel):
+class cyp_wizard_alumnos(models.TransientModel):
     _name = 'cyp.wizard_alumnos'
     _description = "Wizard para alumnos para reportes"
     
@@ -70,7 +86,7 @@ class const_wizard_alumnos(models.TransientModel):
         string="Valor del active id"
     )
     
-    valor_active_models=fields.Char(
+    valor_active_model=fields.Char(
         string="Valor del active model"
     )
     
@@ -78,3 +94,7 @@ class const_wizard_alumnos(models.TransientModel):
         'cyp.alumnos',
         string="Alumnos"
     )
+    
+    def imprimir(self):
+        for rec in self:
+            return self.env.ref('cyp.cyp_wizard_alumnos_report').report_action(self)
