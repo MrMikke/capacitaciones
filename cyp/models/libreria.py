@@ -19,7 +19,7 @@ class libreria(models.Model):
     
     libros=fields.One2many(
         'cyp.libros',
-        'name_libro',
+        'libreria',
         string="Libros"
     )
     
@@ -36,6 +36,10 @@ class libros(models.Model):
     _name="cyp.libros"
     _description="ESTE MODELO ES PARA REGISTRAR LIBROS"
     
+    libreria=fields.Many2one(
+        'cyp.libreria',
+        string="libreria"
+    )
     name_libro=fields.Char(
         String="Nombre del libro"
     )

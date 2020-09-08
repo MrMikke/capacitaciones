@@ -13,7 +13,16 @@
         </tree>
       </field>
     </record>
-      
+      <record model="ir.ui.view" id="cyp.list">
+      <field name="name">cyp libreria</field>
+      <field name="model">cyp.libreria</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name_libreria" string="libreria"/>
+          <field name="name_encargado" string="encargado"/>
+        </tree>
+      </field>
+    </record>
     <record id="act_cyp_alumno_2_cyp_materias" model="ir.actions.act_window">
       <field name="name">Materias</field>
       <field name="res_model">cyp.materias</field>
@@ -99,6 +108,7 @@
             <form>
                 <label for="name_libreria" string="Nombre de la librería"/>
                 <field name="name_libreria"/><br/>
+                
                 <label for="name_encargado" string="Nombre del encargado de la librería"/>
                 <field name="name_encargado"/><br/>
                 <label for="libros" string="Libros"/>
