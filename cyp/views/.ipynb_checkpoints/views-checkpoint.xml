@@ -127,6 +127,8 @@
                     <field name="name_libro"/><br/>
                     <label for="name_autor" string="Nombre del autor"/>
                     <field name="name_autor"/><br/>
+                    <label for="editorial" string="Nombre de la editorial"/>
+                    <field name="editorial"/><br/>
                     <label for="numero_paginas" string="Número de páginas"/>
                     <field name="numero_paginas"/><br/>
                     <label for="promedio_paginas" string="Número promedio de páginas"/>

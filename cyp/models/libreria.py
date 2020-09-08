@@ -48,6 +48,10 @@ class libros(models.Model):
         String="Nombre del autor"
     )
     
+    editorial=fields.Char(
+        String="Nombre de la editorial"
+    )
+    
     numero_paginas=fields.Integer(
         string="numero de paginas",
         default=2
@@ -71,6 +75,8 @@ class libros(models.Model):
         _logger.warning("Se presionó False")
         for rec in self:
             rec.disponible_prestamo = False
+            
+    
     
     @api.constrains('numero_paginas')
     def _constraint_value(self):

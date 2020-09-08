@@ -70,7 +70,7 @@ class alumnos(models.Model):
                 for consulta_materias in consulta.alumnos:
                     _logger.warning("ID " + str(consulta_materias.name))
 
-class herencia_visa(models.Model):
+class herencia_vista(models.Model):
     _inherit = "cyp.alumnos"
     _description="Este es un modelo para crear un nuevo formulario y este añadirlo a una vista que ya está hecha aplicando herenncia"
     
