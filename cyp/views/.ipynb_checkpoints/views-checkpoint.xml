@@ -83,10 +83,12 @@
         <field name="model">cyp.materias</field>
         <field name="arch" type="xml">
             <form>
-                <label for="name" string="nombre"/>
-                <field name="name"/><br/>
-                <label for="alumno" string="alumnos one2many"/>
-                <field name="alumno" widget="many2many"/><br/>
+                <sheet>
+                    <label for="name" string="nombre"/>
+                    <field name="name"/><br/>
+                    <label for="alumno" string="alumnos one2many"/>
+                    <field name="alumno" widget="many2many"/><br/>
+                </sheet>
             </form>
         </field>
     </record>
@@ -107,13 +109,15 @@
         <field name="model">cyp.libreria</field>
         <field name="arch" type="xml">
             <form>
-                <label for="name_libreria" string="Nombre de la librería"/>
-                <field name="name_libreria"/><br/>
-                
-                <label for="name_encargado" string="Nombre del encargado de la librería"/>
-                <field name="name_encargado"/><br/>
-                <label for="libros" string="Libros"/>
-                <field name="libros" widget="many2many"/><br/>
+                <sheet>
+                    <label for="name_libreria" string="Nombre de la librería"/>
+                    <field name="name_libreria"/><br/>
+
+                    <label for="name_encargado" string="Nombre del encargado de la librería"/>
+                    <field name="name_encargado"/><br/>
+                    <label for="libros" string="Libros"/>
+                    <field name="libros" widget="many2many"/><br/>
+                </sheet>
             </form>
         </field>
     </record>

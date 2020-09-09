@@ -21,8 +21,11 @@
                           REPORTE DE LIBROS
                       </span>
                   </div>
+                  
+                  <t t-set="total_paginas" t-value="0"/>
                   <!--  POR CADA LIBRO  -->
                   <t t-foreach="doc.libros" t-as="libros">
+                      <t t-set="total_paginas" t-value="total_paginas+libros.numero_paginas"/> 
                       
                       <t t-if="libros.numero_paginas > 100">
                           <t t-set="tamano_libro" t-value="'ESTE LIBRO ES MUY EXTENSO'"/>
@@ -62,6 +65,7 @@
                       <div><t t-esc="libros.numero_paginas / 2"/></div> -->
                       <br/><br/><br/>
                   </t>
+                  <label>Total de hojas de libros impresos: <t t-esc="total_paginas"/></label>
               </t>
           </t>
         </template>
