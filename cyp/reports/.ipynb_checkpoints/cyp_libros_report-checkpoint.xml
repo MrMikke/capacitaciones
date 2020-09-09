@@ -23,22 +23,37 @@
                   </div>
                   <!--  POR CADA LIBRO  -->
                   <t t-foreach="doc.libros" t-as="libros">
+                      
+                      <t t-if="libros.numero_paginas > 100">
+                          <t t-set="tamano_libro" t-value="'ESTE LIBRO ES MUY EXTENSO'"/>
+                      </t>
+                      <t t-elif="libros.numero_paginas > 50">
+                          <t t-set="tamano_libro" t-value="'ESTE LIBRO ES MEDIANAMENTE EXTENSO'"/>
+                      </t>
+                      <t t-else="">
+                          <t t-set="tamano_libro" t-value="'ESTE LIBRO ES UN POCO EXTENSO'"/>
+                      </t>
+                      
                       <table border="1">
                           <tr>
                               <th height="50" width="100%" style="color:red" colspan="4"><t t-esc="libros.name_libro"/></th>
                           </tr>
                           
                           <tr>
-                              <td height="50" width="200"><t t-esc="libros.editorial"/></td>
-                              <td height="50" width="200"><t t-esc="libros.name_autor"/></td>
-                              <td height="50" width="200"><t t-esc="libros.numero_paginas"/></td>
-                              <td height="50" width="200"><t t-esc="libros.numero_paginas / 2"/></td>
+                              <td height="50" width="200" style="text-align: center;"><t t-esc="libros.editorial"/></td>
+                              <td height="50" width="200" style="text-align: center;"><t t-esc="libros.name_autor"/></td>
+                              <td height="50" width="200" style="text-align: center;"><t t-esc="libros.numero_paginas"/></td>
+                              <td height="50" width="200" style="text-align: center;"><t t-esc="libros.numero_paginas / 2"/></td>
                           </tr>
                           
                           <tr>
-                              <td colspan="4">ESTE LIBRO ES MUY:</td>
+                              <td colspan="4" style="text-align: center;"><t t-esc="tamano_libro"/></td>
                           </tr>
                       </table>
+                      <label><b>Este libro lo puedes encontrar en: </b></label>
+                      <label><t t-esc="libros.libreria.name_libreria"/></label><br/>
+                      <label><b>Encargado: </b></label>
+                      <label><t t-esc="libros.libreria.name_encargado"/></label>
                       
 <!--                       <div style="color:red"><t t-esc="libros.name_libro"/></div>
                       <div><t t-esc="libros.editorial"/></div>
