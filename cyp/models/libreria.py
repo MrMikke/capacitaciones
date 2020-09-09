@@ -110,5 +110,9 @@ class const_wizard_libros(models.TransientModel):
     
     libros=fields.Many2many(
         'cyp.libros',
-        string="Alumnos"
+        string="Libros"
     )
+    
+    def imprimir(self):
+        for rec in self:
+            return self.env.ref('cyp.cyp_wizard_libros_report').report_action(self)

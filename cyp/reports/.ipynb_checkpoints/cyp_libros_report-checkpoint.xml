@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <report
+            id="cyp_wizard_libros_report"
+            model="cyp.wizard_libros"
+            string="Wizard Libros"
+            report_type="qweb-pdf"
+            name="cyp.cyp_wizard_libros"
+            file="cyp.cyp_wizard_libros_report"
+            attachment_use="True"
+            print_report_name="(object.id)"
+            paperformat="base.paperformat_us"
+        />
+        
+        <template id="cyp_wizard_libros">
+            <t t-call="web.html_container">
+                
+              <t t-foreach="docs" t-as="doc">
+                  <div class="header">
+                      <span>
+                          REPORTE DE LIBROS
+                      </span>
+                  </div>
+                  <!--  POR CADA LIBRO  -->
+                  <t t-foreach="doc.libros" t-as="libros">
+                      <table border="1">
+                          <tr>
+                              <th height="50" width="100%" style="color:red" colspan="4"><t t-esc="libros.name_libro"/></th>
+                          </tr>
+                          
+                          <tr>
+                              <td height="50" width="200"><t t-esc="libros.editorial"/></td>
+                              <td height="50" width="200"><t t-esc="libros.name_autor"/></td>
+                              <td height="50" width="200"><t t-esc="libros.numero_paginas"/></td>
+                              <td height="50" width="200"><t t-esc="libros.numero_paginas / 2"/></td>
+                          </tr>
+                          
+                          <tr>
+                              <td colspan="4">ESTE LIBRO ES MUY:</td>
+                          </tr>
+                      </table>
+                      
+<!--                       <div style="color:red"><t t-esc="libros.name_libro"/></div>
+                      <div><t t-esc="libros.editorial"/></div>
+                      <div><t t-esc="libros.name_autor"/></div>
+                      <div><t t-esc="libros.numero_paginas"/></div>
+                      <div><t t-esc="libros.numero_paginas / 2"/></div> -->
+                      <br/><br/><br/>
+                  </t>
+              </t>
+          </t>
+        </template>
+    </data>
+</odoo>
