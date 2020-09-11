@@ -1,0 +1,31 @@
+<odoo>
+  <data>
+
+
+
+      
+    <record model="ir.actions.act_window" id="cvp.action_peliculas">
+      <field name="name">cvp peliculas</field>
+      <field name="res_model">cvp.peliculas</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="cvp" id="cvp.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Peliculas" id="cvp.menu_1" parent="cvp.menu_root"/>
+    
+
+    <!-- actions -->
+
+    <menuitem name="Lista" id="cvp.menu_1_list" parent="cvp.menu_1"
+              action="cvp.action_peliculas"/>
+    
+
+  </data>
+</odoo>

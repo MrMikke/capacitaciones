@@ -3,20 +3,6 @@
 from odoo import models, fields, api
 
 
-class cvp(models.Model):
-    _name = 'cvp.cvp'
-    _description = 'cvp.cvp'
-
-    name = fields.Char()
-    value = fields.Integer()
-    value2 = fields.Float(compute="_value_pc", store=True)
-    description = fields.Text()
-
-    @api.depends('value')
-    def _value_pc(self):
-        for record in self:
-            record.value2 = float(record.value) / 100
-            
 
 class cvp_peliculas(models.Model):
     _name = 'cvp.peliculas'
@@ -34,10 +20,16 @@ class cvp_peliculas(models.Model):
     longitud_minutos=fields.Float(
         string="Duración en minutos"
     )
+    contacto_director=fields.One2many(
+        'res.partner',
+        'director',
+        string="Director"
+    )
     actores=fields.Many2one(
-        'res.partner'
+        'res.partner',
         string="Actores"
     )
+    
     sinopsis=fields.Text(
         string="Sinopsis"
     )
