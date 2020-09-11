@@ -20,12 +20,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','sale','purchase','contacts'],
+    'depends': ['base','sales','purchase','contacts'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/cvp_views.xml',
+        'views/cvp_peliculas_views.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode
