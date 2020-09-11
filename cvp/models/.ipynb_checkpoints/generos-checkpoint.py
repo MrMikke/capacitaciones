@@ -8,7 +8,7 @@ class cvp_peliculas(models.Model):
         'cvp.peliculas',                              
         string="peliculas"
     )
-    nombre=fields.Char(
+    name=fields.Char(
         string="Nombre"
     )
     descripcion=fields.Text(

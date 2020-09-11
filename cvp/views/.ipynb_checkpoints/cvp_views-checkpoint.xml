@@ -10,8 +10,17 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-
-
+    <record model="ir.actions.act_window" id="cvp.action_studios">
+      <field name="name">cvp estudio</field>
+      <field name="res_model">cvp.studios</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="cvp.action_generos">
+      <field name="name">cvp generos</field>
+      <field name="res_model">cvp.generos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
     <!-- Top menu item -->
 
     <menuitem name="cvp" id="cvp.menu_root"/>
@@ -26,6 +35,10 @@
     <menuitem name="Lista" id="cvp.menu_1_list" parent="cvp.menu_1"
               action="cvp.action_peliculas"/>
     
-
+    <menuitem name="Estudios" id="cvp.menu_2_list" parent="cvp.menu_1"
+              action="cvp.action_studios"/>
+      
+    <menuitem name="Generos" id="cvp.menu_3_list" parent="cvp.menu_1"
+              action="cvp.action_generos"/>
   </data>
 </odoo>

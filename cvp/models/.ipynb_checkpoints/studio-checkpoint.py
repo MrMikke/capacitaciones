@@ -9,4 +9,11 @@ class cvp_studios(models.Model):
         'studio',
         string="Peliculas"
     )
+    name=fields.Char(
+        string="Nombre"
+    )
+    descripcion=fields.Text(
+        string="Descripción"
+    )
+    
     

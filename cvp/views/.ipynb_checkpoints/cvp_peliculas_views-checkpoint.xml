@@ -6,7 +6,7 @@
             <field name="model">cvp.peliculas</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="titulo"/>
+                    <field name="name"/>
                     <field name="fecha_lanzamiento"/>
                     <field name="director"/>
                     <field name="studio"/>
@@ -20,30 +20,43 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <label for="titulo" string="Titulo"/>
-                        <field name="titulo" string="Titulo"/><br/>
-                        <label for="imagen_pelicula" string="Portada"/>
-                        <field name="imagen_pelicula" string="Portada"/><br/>
-                        <label for="fecha_lanzamiento" string="Fecha de lanzamiento"/>
-                        <field name="fecha_lanzamiento" string="fecha_lanzamiento"/><br/>
-                        <label for="longitud_minutos" string="longitud_minutos"/>
-                        <field name="longitud_minutos" string="longitud_minutos"/><br/>
-                        <label for="actores_contactos" string="Actores"/>
-                        <field name="actores_contactos" string="Actores"/><br/>
-                        <label for="studio" string="Estudio"/>
-                        <field name="studio" string="Estudio"/><br/>
-                        <label for="director" string="Director"/>
-                        <field name="director" string="Director"/><br/>
-                        <label for="producto_asociado" string="Producto"/>
-                        <field name="producto_asociado" string="Producto"/><br/>
-                        <label for="sinopsis" string="Sinopsis"/>
-                        <field name="sinopsis" string="Sinopsis"/><br/>
-                        <label for="costo_pelicula" string="Costo de pelicula"/>
-                        <field name="costo_pelicula" string="Costo de pelicula"/><br/>
-                        <label for="iva" string="Iva"/>
-                        <field name="iva" string="Iva"/><br/>
-                        <label for="total" string="Total"/>
-                        <field name="total" string="Total"/>
+                        <header>
+                            <button name="create_sale" type="object" string="Generar Venta" confirm="Seguro que desea generar venta?"/>
+                            <button name="create_purchase" type="object" string="Generar Compra" confirm="Seguro que desea generar compra?"/>
+                        </header>
+                        <label for="name" string="Titulo"/>
+                        <field name="name" string="Titulo"/><br/>
+                        <group>
+                            <group>
+                                <field name="imagen_pelicula" widget="image"/>
+                            </group>
+                            <group>
+                                <field name="fecha_lanzamiento" string="fecha_lanzamiento" options="{'datepicker':{'maxDate': 'now'}}"/>
+                                <field name="longitud_minutos" string="longitud_minutos"/>
+                                
+                                <field name="studio" string="Estudio"/>
+                                <field name="director" string="Director"/>
+                                <field name="producto_asociado" string="Producto"/>
+                                <field name="sinopsis" string="Sinopsis"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Costos">
+                                <label for="costo_pelicula" string="Costo de la pelicula"/>
+                                <field name="costo_pelicula" string="Costo de pelicula"/><br/>
+                                <label for="costo_pelicula" string="Iva"/>
+                                <field name="iva" string="Iva"/><br/>
+                                <label for="total" string="total"/>
+                                <field name="total" string="Total"/>
+                            </page>
+                            <page string="Actores">
+                                <field name="actores_contactos" string="Actores" widget="many2many"/>
+                            </page>
+                            <page string="Generos">
+                                <field name="generos" widget="many2many"/>
+                            </page>
+                        </notebook>
+                        
                     </sheet>
                 </form>
             </field>

@@ -3,17 +3,20 @@
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 import logging
+import datetime
+import pytz
 _logger = logging.getLogger(__name__)
 
 class cvp_peliculas(models.Model):
     _name = 'cvp.peliculas'
     _description = 'Tabla para peliculas'
-
+    
+    current_user = fields.Many2one('res.users','Current User', default=lambda self: self.env.user)
     imagen_pelicula=fields.Binary(
         string="Portada",
         required=True
     )
-    titulo=fields.Char(
+    name=fields.Char(
         string="Descripción"
     )
     fecha_lanzamiento=fields.Date(
@@ -23,7 +26,7 @@ class cvp_peliculas(models.Model):
         string="Duración en minutos"
     )
     producto_asociado=fields.Many2one(
-        'product.template',
+        'product.product',
         string="Producto"
     )
     actores_contactos=fields.One2many(
@@ -39,7 +42,10 @@ class cvp_peliculas(models.Model):
         'res.partner',
         string="Director"
     )
-    
+    generos=fields.Many2many(
+        'cvp.generos',
+        string="Generos"
+    )
     sinopsis=fields.Text(
         string="Sinopsis"
     )
@@ -63,7 +69,45 @@ class cvp_peliculas(models.Model):
         for rec in self:
             if rec.iva<0 and rec.iva>100:
                 raise ValidationError("El iva no puede ser menor a 0% ni mayor a 100%")
+                
+                
+    def create_sale(self):
+        for rec in self:
+            _logger.warning("CREAR VENTA")
+            sale_order = rec.env['sale.order'].create({
+                "partner_id": rec.current_user.id,
+                "date_order": datetime.datetime.now(),
+            })
+            detalle=rec.env['sale.order.line'].create({
+                "order_id": sale_order.id,
+                "product_id":  rec.producto_asociado.id,
+                "name":  rec.producto_asociado.name,
+                "product_uom_qty": 1,
+                "product_uom": rec.producto_asociado.uom_id.id,
+                "price_unit": rec.total,
+            
+            })
+            
+            
     
+    
+    def create_purchase(self):
+        for rec in self:
+            _logger.warning("CREAR COMPRA")
+            purchase_order = rec.env['purchase.order'].create({
+                "partner_id": rec.current_user.id,
+                "date_order": datetime.datetime.now(),
+            })
+            detalle=rec.env['purchase.order.line'].create({
+                "order_id": purchase_order.id,
+                "product_id":  rec.producto_asociado.id,
+                "name":  rec.producto_asociado.name,
+                "product_qty": 1,
+                "product_uom": rec.producto_asociado.uom_id.id,
+                "price_unit": rec.total,
+                "date_planned": datetime.datetime.now(),
+            })
+            
             
 
     

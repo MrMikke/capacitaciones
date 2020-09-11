@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="cvp.studios_tree">
+            <field name="name">cvp estudios tree</field>
+            <field name="model">cvp.studios</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <!-- VISTA FORM -->
+        <record model="ir.ui.view" id="cvp.studios_form">
+            <field name="name">cvp studios form</field>
+            <field name="model">cvp.studios</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        
+                        <label for="name" string="Titulo"/>
+                        <field name="name" string="Titulo"/><br/>
+                        <label for="descripcion" string="Descripción"/>
+                        <field name="descripcion" string="Descripción"/>
+                        <notebook>
+                            <page string="Peliculas">
+                                <field name="pelicula_studio"/>
+                            </page>
+                        </notebook>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+    </data>
+</odoo>
