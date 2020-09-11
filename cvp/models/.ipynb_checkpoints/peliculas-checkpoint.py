@@ -3,9 +3,9 @@
 from odoo import models, fields, api
 
 
-class cvp(models.Model):
-    _name = 'cvp.cvp'
-    _description = 'cvp.cvp'
+class peliculas(models.Model):
+    _name = 'cvp.peliculas'
+    _description = 'Modelo para crear películas'
 
     name = fields.Char()
     value = fields.Integer()
