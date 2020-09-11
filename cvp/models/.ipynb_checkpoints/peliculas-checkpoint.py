@@ -20,14 +20,14 @@ class cvp_peliculas(models.Model):
     longitud_minutos=fields.Float(
         string="Duración en minutos"
     )
-    contacto_director=fields.One2many(
+    actores_contactos=fields.One2many(
         'res.partner',
-        'director',
-        string="Director"
-    )
-    actores=fields.Many2one(
-        'res.partner',
+        'actores',
         string="Actores"
+    )
+    director=fields.Many2one(
+        'res.partner',
+        string="Director"
     )
     
     sinopsis=fields.Text(
