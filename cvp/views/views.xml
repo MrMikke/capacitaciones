@@ -19,9 +19,7 @@
       <field name="model">cvp.peliculas</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+            <field name="imagen_pelicula"/>
         </tree>
       </field>
     </record>
