@@ -19,18 +19,32 @@
       <field name="model">cvp.peliculas</field>
       <field name="arch" type="xml">
         <form>
-            <field name="titulo" />
-            <field name="imagen_pelicula" />
-            <field name="fecha_lanzamiento" />
-<!--             <field name="fecha_actual" invisible="1" /> -->
-            <field name="longitud_minutos" />
-            <field name="director" />
-            <field name="actores" />
-            <field name="producto_asociado" />
-            <field name="sinopsis" />
-            <field name="costo_pelicula" />
-            <field name="iva" />
-            <field name="total" />
+            <sheet>
+                <label for="titulo" string="Título"/>
+                <field name="titulo" /><br/>
+                <label for="imagen_pelicula" string="Imagen de la película"/>
+                <field name="imagen_pelicula" /><br/>
+                <label for="sinopsis" string="Sinopsis"/>
+                <field name="sinopsis" /><br/>
+                <label for="fecha_lanzamiento" string="Fecha de lanzamiento"/>
+                <field name="fecha_lanzamiento" /><br/>
+                <label for="longitud_minutos" string="Duración de la película [en minutos]"/>
+                <field name="longitud_minutos" /><br/>
+                <label for="director" string="Director"/>
+                <field name="director" /><br/>
+                <label for="actores" string="Actores"/>
+                <field name="actores" /><br/>
+                <label for="producto_asociado" string="Producto asociado a la película"/>
+                <field name="producto_asociado" /><br/>
+                <label for="costo_pelicula" string="Costo de la película"/>
+<!--                 <label string="$"></label> -->
+                <field name="costo_pelicula" /><br/>
+                <label for="iva" string="IVA (%)"/>
+                <field name="iva" /><br/>
+                <label for="total" string="Total"/>
+<!--                 <label string="$"></label> -->
+                <field name="total" />
+            </sheet>
         </form>
       </field>
     </record>
