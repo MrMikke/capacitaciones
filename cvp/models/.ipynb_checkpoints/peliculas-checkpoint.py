@@ -21,10 +21,6 @@ class peliculas(models.Model):
     fecha_lanzamiento = fields.Date(
         default=fields.Date.today
     )
-    fecha_actual = fields.Date(
-        default=fields.Date.today,
-        readonly=True
-    )
     longitud_minutos = fields.Float(
         
     )
@@ -49,16 +45,3 @@ class peliculas(models.Model):
     total = fields.Float(
         
     )
-    
-    @api.onchange('fecha_lanzamiento')
-    def _onchange_fecha_lanzamiento(self):
-        for rec in self:
-            _logger.warning("-- Fecha actual actual --")
-            _logger.warning(rec.fecha_actual.day)
-#             _logger.warning(rec.fecha_lanzamiento.month)
-            
-#     @api.constrains('fecha_lanzamiento')
-#     def _constraint_fecha_lanzamiento(self):
-#         for rec in self:
-#             if rec.value==0:
-#                 raise ValidationError("NO PUEDE SER VALOR 0")

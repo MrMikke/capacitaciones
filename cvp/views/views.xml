@@ -27,7 +27,7 @@
                 <label for="sinopsis" string="Sinopsis"/>
                 <field name="sinopsis" /><br/>
                 <label for="fecha_lanzamiento" string="Fecha de lanzamiento"/>
-                <field name="fecha_lanzamiento" /><br/>
+                <field name="fecha_lanzamiento" options="{'datepicker':{'maxDate': 'now'}}"/><br/>
                 <label for="longitud_minutos" string="Duración de la película [en minutos]"/>
                 <field name="longitud_minutos" /><br/>
                 <label for="director" string="Director"/>
