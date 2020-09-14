@@ -15,12 +15,23 @@
     </record>
       
     <record model="ir.ui.view" id="form_cvp_peliculas">
-      <field name="name">cvp peliculas</field>
+      <field name="name">cvp peliculas tree</field>
       <field name="model">cvp.peliculas</field>
       <field name="arch" type="xml">
-        <tree>
-            <field name="imagen_pelicula"/>
-        </tree>
+        <form>
+            <field name="titulo" />
+            <field name="imagen_pelicula" />
+            <field name="fecha_lanzamiento" />
+<!--             <field name="fecha_actual" invisible="1" /> -->
+            <field name="longitud_minutos" />
+            <field name="director" />
+            <field name="actores" />
+            <field name="producto_asociado" />
+            <field name="sinopsis" />
+            <field name="costo_pelicula" />
+            <field name="iva" />
+            <field name="total" />
+        </form>
       </field>
     </record>
 

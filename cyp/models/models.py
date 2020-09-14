@@ -17,9 +17,9 @@ class cyp(models.Model):
     )
     description = fields.Text()
     
-    # @api.onchange('value')
-    # def _onchange_value(self):
-    #    raise ValidationError("SE REALIZO UN CAMBIO EN EL FIELD VALUE")
+    @api.onchange('value')
+    def _onchange_value(self):
+       raise ValidationError("SE REALIZO UN CAMBIO EN EL FIELD VALUE")
     
     @api.constrains('value')
     def _constraint_value(self):
