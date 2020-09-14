@@ -29,11 +29,11 @@
                 <label for="fecha_lanzamiento" string="Fecha de lanzamiento"/>
                 <field name="fecha_lanzamiento" options="{'datepicker':{'maxDate': 'now'}}"/><br/>
                 <label for="longitud_minutos" string="Duración de la película [en minutos]"/>
-                <field name="longitud_minutos" /><br/>
+                <field name="longitud_minutos"/><br/>
                 <label for="director" string="Director"/>
-                <field name="director" /><br/>
+                <field name="director"/><br/>
                 <label for="actores" string="Actores"/>
-                <field name="actores" /><br/>
+                <field name="actores" widget="many2many"/><br/>
                 <label for="producto_asociado" string="Producto asociado a la película"/>
                 <field name="producto_asociado" /><br/>
                 <label for="costo_pelicula" string="Costo de la película"/>

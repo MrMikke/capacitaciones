@@ -21,19 +21,21 @@ class peliculas(models.Model):
     fecha_lanzamiento = fields.Date(
         default=fields.Date.today
     )
-    longitud_minutos = fields.Float(
+    longitud_minutos = fields.Integer(
         
     )
-    director = fields.Char(
-        
+    director = fields.Many2one(
+        'res.partner',
     )
-    actores = fields.Char(
-        
+    actores = fields.One2many(
+        'res.partner',
+        'name'
+
     )
     producto_asociado = fields.Char(
         
     )
-    sinopsis = fields.Char(
+    sinopsis = fields.Text(
         
     )
     costo_pelicula = fields.Float(
