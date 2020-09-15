@@ -5,10 +5,17 @@ from odoo.exceptions import ValidationError
 import logging
 _logger = logging.getLogger(__name__)
 
-class herencia(models.Model):
+class herencia_contactos(models.Model):
     _inherit="res.partner"
     
-    mi_campo=fields.Many2one(
+    mi_campo_actores=fields.Many2one(
+        'cvp.peliculas'
+    )
+    
+class herencia_productos(models.Model):
+    _inherit="product.template"
+    
+    mi_campo_asociado=fields.Many2one(
         'cvp.peliculas'
     )
 
@@ -35,10 +42,11 @@ class peliculas(models.Model):
     )
     actores = fields.One2many(
         'res.partner',
-        'mi_campo'
+        'mi_campo_actores'
     )
-    producto_asociado = fields.Char(
-        
+    producto_asociado = fields.One2many(
+        'res.partner',
+        'mi_campo_asociado'
     )
     sinopsis = fields.Text(
         
