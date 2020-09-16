@@ -64,8 +64,7 @@
                                 <field name="iva" string="Iva"
                                        attrs="{'readonly':[('state','=','I')]}"/><br/>
                                 <label for="total" string="total"/>
-                                <field name="total" string="Total"
-                                       attrs="{'readonly':[('state','=','I')]}"/>
+                                <field name="total" string="Total"/>
                             </page>
                             <page string="Actores" groups="cvp.admin_cvp_group,cvp.empleados_cvp_group" attrs="{'readonly':[('state','=','I')]}">
                                 <field name="actores_contactos" string="Actores" widget="many2many"
