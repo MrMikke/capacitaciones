@@ -33,12 +33,12 @@
     <!-- actions -->
 
     <menuitem name="Lista" id="cvp.menu_1_list" parent="cvp.menu_1"
-              action="cvp.action_peliculas"/>
+              action="cvp.action_peliculas" />
     
     <menuitem name="Estudios" id="cvp.menu_2_list" parent="cvp.menu_1"
-              action="cvp.action_studios"/>
+              action="cvp.action_studios" groups="cvp.admin_cvp_group"/>
       
     <menuitem name="Generos" id="cvp.menu_3_list" parent="cvp.menu_1"
-              action="cvp.action_generos"/>
+              action="cvp.action_generos" groups="cvp.admin_cvp_group"/>
   </data>
 </odoo>

@@ -12,6 +12,15 @@ class cvp_peliculas(models.Model):
     _description = 'Tabla para peliculas'
     
     current_user = fields.Many2one('res.users','Current User', default=lambda self: self.env.user)
+    #CAMPO USADO PARA HACER EL STATUSBAR
+    state = fields.Selection(
+        [
+            ('A','Activa'),
+            ('I','Inactiva'),
+        ], 
+        string="Estatus", 
+        default='A'
+    )
     imagen_pelicula=fields.Binary(
         string="Portada",
         required=True
@@ -70,7 +79,14 @@ class cvp_peliculas(models.Model):
             if rec.iva<0 and rec.iva>100:
                 raise ValidationError("El iva no puede ser menor a 0% ni mayor a 100%")
                 
-                
+    
+    def activate(self):
+        for rec in self:
+            rec.state="A"
+    
+    def inactive(self):
+        for rec in self:
+            rec.state="I"
     def create_sale(self):
         for rec in self:
             _logger.warning("CREAR VENTA")

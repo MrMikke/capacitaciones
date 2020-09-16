@@ -25,11 +25,13 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/groups_custom.xml',
         'views/cvp_views.xml',
         'views/cvp_peliculas_views.xml',
         'views/cvp_estudios_views.xml',
         'views/cvp_generos_views.xml',
         'views/templates.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [
