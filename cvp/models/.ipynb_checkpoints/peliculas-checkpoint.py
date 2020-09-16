@@ -57,6 +57,12 @@ class peliculas(models.Model):
         
     )
     total = fields.Float(
-        
+        string="Total",
+        compute="_calc_total"
     )
+    
+    @api.depends('iva')
+    def _calc_total(self):
+        for record in self:
+            record.total = float(record.costo_pelicula) + (float(record.costo_pelicula) * (float(record.iva) / 100))
     

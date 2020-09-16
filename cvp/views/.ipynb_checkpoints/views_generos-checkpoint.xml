@@ -1,0 +1,29 @@
+<odoo>
+  <data>
+          <record model="ir.ui.view" id="form_cvp_generos">
+          <field name="name">cvp generos tree</field>
+          <field name="model">cvp.generos</field>
+          <field name="arch" type="xml">
+            <form>
+              <sheet>
+                  <label for="name" string="Nombre del género"/>
+                  <field name="name" /><br/>
+<!--                   <label for="descripcion" string="Nombre de la descripcion"/>
+                  <field name="descripcion" /><br/> -->
+              </sheet>
+          </form>
+        </field>
+      </record>
+      
+      <record model="ir.actions.act_window" id="cvp.action_generos">
+          <field name="name">cvp generos</field>
+          <field name="res_model">cvp.generos</field>
+          <field name="view_mode">tree,form</field>
+      </record>
+      
+      <menuitem name="Géneros" id="cvp.generos" parent="cvp.menu_root"
+                action="cvp.action_generos"/>
+
+      
+  </data>
+</odoo>
