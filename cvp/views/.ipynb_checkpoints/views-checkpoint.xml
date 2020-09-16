@@ -35,7 +35,7 @@
                 <label for="actores" string="Actores"/>
                 <field name="actores" widget="many2many"/><br/>
                 <label for="producto_asociado" string="Producto asociado a la película"/>
-                <field name="producto_asociado" /><br/>
+                <field name="producto_asociado"/><br/>
                 <label for="costo_pelicula" string="Costo de la película"/>
 <!--                 <label string="$"></label> -->
                 <field name="costo_pelicula" /><br/>

@@ -12,12 +12,12 @@ class herencia_contactos(models.Model):
         'cvp.peliculas'
     )
     
-class herencia_productos(models.Model):
-    _inherit="product.template"
+# class herencia_productos(models.Model):
+#     _inherit="product.template"
     
-    mi_campo_asociado=fields.Many2one(
-        'cvp.peliculas'
-    )
+#     mi_campo_asociado=fields.Many2one(
+#         'cvp.peliculas'
+#     )
 
 class peliculas(models.Model):
     _name = 'cvp.peliculas'
@@ -44,9 +44,8 @@ class peliculas(models.Model):
         'res.partner',
         'mi_campo_actores'
     )
-    producto_asociado = fields.One2many(
-        'res.partner',
-        'mi_campo_asociado'
+    producto_asociado = fields.Many2one(
+        'product.template',
     )
     sinopsis = fields.Text(
         
