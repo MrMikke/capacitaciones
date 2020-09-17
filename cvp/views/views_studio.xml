@@ -34,7 +34,7 @@
       </record>
       
       <menuitem name="Studio" id="cvp.studio" parent="cvp.menu_root"
-                action="cvp.action_studio"/>
+                action="cvp.action_studio" groups="cvp.admin_cvp_group"/>
 
       
   </data>

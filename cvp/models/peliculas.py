@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+import datetime
 import logging
 _logger = logging.getLogger(__name__)
 
@@ -23,7 +24,7 @@ class peliculas(models.Model):
     _name = 'cvp.peliculas'
     _description = 'Modelo para crear películas'
 
-    titulo = fields.Char(
+    name = fields.Char(
         required=True
     )
     imagen_pelicula = fields.Binary(
@@ -45,7 +46,7 @@ class peliculas(models.Model):
         'mi_campo_actores'
     )
     producto_asociado = fields.Many2one(
-        'product.template',
+        'product.product',
     )
     sinopsis = fields.Text(
         
@@ -68,30 +69,58 @@ class peliculas(models.Model):
         'cvp.studio'
     )
     
+    state = fields.Selection(
+        [
+            ('A','Activa'),
+            ('I','Inactiva'),
+        ], 
+        string="Estatus", 
+        default='A'
+    )
+    
+    def activate(self):
+        for rec in self:
+            rec.state="A"
+    
+    def inactive(self):
+        for rec in self:
+            rec.state="I"
+    
     @api.depends('iva')
     def _calc_total(self):
         for record in self:
             record.total = float(record.costo_pelicula) + (float(record.costo_pelicula) * (float(record.iva) / 100))
-    
-
-    def comprar_pelicula(self):
-        _logger.warning("La pelicula se ha COMPRADO")
-#         line_env = self.env['sale.order.line']
-#         for wizard in self:
-#             for rec in wizard.entries:
-#                 new_line = line_env.create({
-#                             'product_id': rec.product_id.id,
-#                             'name': rec.product_id.name,
-#                             'order_id': rec.sale_order_id.id,
-#                             'product_uom' : rec.product_id.uom_id.id})                
-#                 new_line.product_id_change() #Calling an onchange method to update the record
 
     def vender_pelicula(self):
-        _logger.warning("La pelicula se ha VENDIDO")
-#         line_env = self.env['sale.order.line']
-#         for wizard in self:
-#             for rec in wizard.entries:
-#                 new_line = line_env.create({
-#                     'titulo': rec.titulo
-#                 })                
-#                 new_line.product_id_change() #Calling an onchange method to update the record
+        for rec in self:
+            _logger.warning("La pelicula se ha VENDIDO")
+            sale_order = self.env['sale.order'].create({
+                "partner_id": rec.env.user.id,
+                "date_order": datetime.datetime.now(),
+            })
+            detalle = self.env['sale.order.line'].create({
+                "order_id": sale_order.id,
+                "product_id": rec.producto_asociado.id,
+                "name": rec.producto_asociado.name,
+                "product_uom_qty": 1,
+                "product_uom": rec.producto_asociado.uom_id.id,
+                "price_unit": rec.total,
+            })
+        
+            
+    def comprar_pelicula(self):
+        for rec in self:
+            _logger.warning("La pelicula se ha COMPRADO")
+            purchase_order = self.env['purchase.order'].create({
+                    "partner_id": rec.env.user.id,
+                    "date_order": datetime.datetime.now(),
+            })
+            detalle = self.env['purchase.order.line'].create({
+                "order_id": purchase_order.id,
+                "product_id": rec.producto_asociado.id,
+                "name": rec.producto_asociado.name,
+                "product_qty": 1,
+                "product_uom": rec.producto_asociado.uom_id.id,
+                "price_unit": rec.total,
+                "date_planned": datetime.datetime.now()
+            })

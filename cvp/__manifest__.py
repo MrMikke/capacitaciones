@@ -31,6 +31,7 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'views/groups_custom.xml',
         'views/views.xml',
         'views/views_generos.xml',
         'views/views_studio.xml',

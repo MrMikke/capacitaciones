@@ -19,9 +19,10 @@
       <field name="model">cvp.peliculas</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="titulo" string="Titulo"/>
+          <field name="name" string="Titulo"/>
           <field name="director" string="Director"/>
           <field name="genero" string="Género"/>
+            <field name="iva" string="IVA" widget="progressbar"/>
         </tree>
       </field>
     </record>
@@ -32,32 +33,39 @@
       <field name="arch" type="xml">
         <form>
             <sheet>
-                <label for="titulo" string="Título"/>
-                <field name="titulo" /><br/>
-                <label for="imagen_pelicula" string="Imagen de la película"/>
-                <field name="imagen_pelicula" /><br/>
-                <label for="sinopsis" string="Sinopsis"/>
-                <field name="sinopsis" /><br/>
-                <label for="genero" string="Género"/>
-                <field name="genero" /><br/>
-                <label for="fecha_lanzamiento" string="Fecha de lanzamiento"/>
-                <field name="fecha_lanzamiento" options="{'datepicker':{'maxDate': 'now'}}"/><br/>
-                <label for="longitud_minutos" string="Duración de la película [en minutos]"/>
-                <field name="longitud_minutos"/><br/>
-                <label for="director" string="Director"/>
-                <field name="director"/><br/>
-                <label for="actores" string="Actores"/>
-                <field name="actores" widget="many2many"/><br/>
-                <label for="producto_asociado" string="Producto asociado a la película"/>
-                <field name="producto_asociado"/><br/>
-                <label for="costo_pelicula" string="Costo de la película"/>
-<!--                 <label string="$"></label> -->
-                <field name="costo_pelicula" /><br/>
-                <label for="iva" string="IVA (%)"/>
-                <field name="iva" /><br/>
-                <label for="total" string="Total"/>
-<!--                 <label string="$"></label> -->
-                <field name="total" />
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button name="activate" type="object" class="oe_highlight" string="Activar"
+                            confirm="Seguro que desea ACTIVAR la pelicula?" attrs="{'invisible':[('state','=','A')]}"/>
+                    <button name="inactive" type="object" class="oe_highlight" string="Desactivar"
+                            confirm="Seguro que desea DESACTIVAR la pelicula?" attrs="{'invisible':[('state','=','I')]}"/>
+                </header>
+                <group>
+                    <group>
+                        <field name="name" /> 
+                        <field name="imagen_pelicula" widget="image"/> 
+                    </group>
+                    <group>
+                        <field name="sinopsis" /> 
+                        <field name="fecha_lanzamiento" options="{'datepicker':{'maxDate': 'now'}}"/> 
+                        <field name="longitud_minutos"/> 
+                        
+                    </group>
+                </group>
+                <notebook>
+                    <page>
+                        <field name="genero" attrs="{'readonly':[('state','=','A')]}"/> 
+                        <field name="director" attrs="{'readonly':[('state','=','A')]}"/> 
+                        <field name="actores" widget="many2many" attrs="{'readonly':[('state','=','A')]}"/> 
+                        <field name="producto_asociado" /> 
+        <!--                 <label string="$"></label> -->
+                        <field name="costo_pelicula" attrs="{'readonly':[('state','=','A')]}"/> 
+                        <field name="iva" attrs="{'readonly':[('state','=','A')]}"/> 
+        <!--                 <label string="$"></label> -->
+                        <field name="total" />
+                    </page>
+                </notebook>
+                
                 <footer>
                     <button name="comprar_pelicula"
                         string="Comprar película"
