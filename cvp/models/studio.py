@@ -5,22 +5,19 @@ from odoo.exceptions import ValidationError
 import logging
 _logger = logging.getLogger(__name__)
 
-class generos(models.Model):
-    _name = 'cvp.generos'
-    _description = 'Modelo para crear generos de películas'
+class studio(models.Model):
+    _name = 'cvp.studio'
+    _description = 'Modelo para crear studios'
     
-    genero=fields.Char(
+    nombre_studio=fields.Char(
         string="Nombre del genero"
     )
     
-    descripcion=fields.Text(
-        string="Descripción del genero"
-    )
-
-    peliculas=fields.Many2many(
+    peliculas=fields.One2many(
         'cvp.peliculas',
-        string="Nombre del genero"
+        'mi_campo_peliculas',
     )
+    
 #     descripcion=fields.Many2many(
 #         'cyp.peliculas',
 #         string="Descripción"

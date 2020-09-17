@@ -64,6 +64,9 @@ class peliculas(models.Model):
         string="Total",
         compute="_calc_total"
     )
+    mi_campo_peliculas=fields.Many2one(
+        'cvp.studio'
+    )
     
     @api.depends('iva')
     def _calc_total(self):

@@ -8,8 +8,16 @@ _logger = logging.getLogger(__name__)
 class generos(models.Model):
     _name = 'cvp.generos'
     _description = 'Modelo para crear generos de películas'
+    
+    genero=fields.Char(
+        string="Nombre del genero"
+    )
+    
+    descripcion=fields.Text(
+        string="Descripción del genero"
+    )
 
-    genero=fields.Many2many(
+    peliculas=fields.Many2many(
         'cvp.peliculas',
         string="Nombre del genero"
     )
@@ -18,6 +26,6 @@ class generos(models.Model):
 #         string="Descripción"
 #     )
 
-    alumnos3=fields.Many2many(
-            string="ALUMNOS3"
-        )
+#     alumnos3=fields.Many2many(
+#             string="ALUMNOS3"
+#         )
