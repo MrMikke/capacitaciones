@@ -50,6 +50,10 @@ class peliculas(models.Model):
     sinopsis = fields.Text(
         
     )
+    genero=fields.Many2many(
+        'cvp.generos',
+        string="Nombre del genero"
+    )
     costo_pelicula = fields.Float(
         
     )

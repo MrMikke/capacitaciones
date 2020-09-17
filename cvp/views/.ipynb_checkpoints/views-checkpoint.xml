@@ -26,6 +26,8 @@
                 <field name="imagen_pelicula" /><br/>
                 <label for="sinopsis" string="Sinopsis"/>
                 <field name="sinopsis" /><br/>
+                <label for="genero" string="Género"/>
+                <field name="genero" /><br/>
                 <label for="fecha_lanzamiento" string="Fecha de lanzamiento"/>
                 <field name="fecha_lanzamiento" options="{'datepicker':{'maxDate': 'now'}}"/><br/>
                 <label for="longitud_minutos" string="Duración de la película [en minutos]"/>
