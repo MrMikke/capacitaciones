@@ -1,5 +1,16 @@
 <odoo>
   <data>
+    <record model="ir.ui.view" id="tree_cvp_generos">
+      <field name="name">cvp generos tree</field>
+      <field name="model">cvp.generos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="genero" string="Género"/>
+          <field name="descripcion" string="Descripción"/>
+        </tree>
+      </field>
+    </record>
+      
           <record model="ir.ui.view" id="form_cvp_generos">
           <field name="name">cvp generos form</field>
           <field name="model">cvp.generos</field>

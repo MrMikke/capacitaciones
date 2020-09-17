@@ -1,5 +1,15 @@
 <odoo>
   <data>
+    <record model="ir.ui.view" id="tree_cvp_studio">
+      <field name="name">cvp studio tree</field>
+      <field name="model">cvp.studio</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="nombre_studio" string="Nombre del studio"/>
+          <field name="peliculas" string="Peliculas asociadas"/>
+        </tree>
+      </field>
+    </record>
           <record model="ir.ui.view" id="form_cvp_studio">
           <field name="name">cvp studio tree</field>
           <field name="model">cvp.studio</field>

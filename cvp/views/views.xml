@@ -14,8 +14,20 @@
       </field>
     </record>
       
-    <record model="ir.ui.view" id="form_cvp_peliculas">
+    <record model="ir.ui.view" id="tree_cvp_peliculas">
       <field name="name">cvp peliculas tree</field>
+      <field name="model">cvp.peliculas</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="titulo" string="Titulo"/>
+          <field name="director" string="Director"/>
+          <field name="genero" string="Género"/>
+        </tree>
+      </field>
+    </record>
+      
+    <record model="ir.ui.view" id="form_cvp_peliculas">
+      <field name="name">cvp peliculas form</field>
       <field name="model">cvp.peliculas</field>
       <field name="arch" type="xml">
         <form>
