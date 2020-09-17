@@ -73,3 +73,25 @@ class peliculas(models.Model):
         for record in self:
             record.total = float(record.costo_pelicula) + (float(record.costo_pelicula) * (float(record.iva) / 100))
     
+
+    def comprar_pelicula(self):
+        _logger.warning("La pelicula se ha COMPRADO")
+#         line_env = self.env['sale.order.line']
+#         for wizard in self:
+#             for rec in wizard.entries:
+#                 new_line = line_env.create({
+#                             'product_id': rec.product_id.id,
+#                             'name': rec.product_id.name,
+#                             'order_id': rec.sale_order_id.id,
+#                             'product_uom' : rec.product_id.uom_id.id})                
+#                 new_line.product_id_change() #Calling an onchange method to update the record
+
+    def vender_pelicula(self):
+        _logger.warning("La pelicula se ha VENDIDO")
+#         line_env = self.env['sale.order.line']
+#         for wizard in self:
+#             for rec in wizard.entries:
+#                 new_line = line_env.create({
+#                     'titulo': rec.titulo
+#                 })                
+#                 new_line.product_id_change() #Calling an onchange method to update the record

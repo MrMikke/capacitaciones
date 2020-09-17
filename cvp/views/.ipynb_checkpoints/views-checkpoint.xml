@@ -58,6 +58,19 @@
                 <label for="total" string="Total"/>
 <!--                 <label string="$"></label> -->
                 <field name="total" />
+                <footer>
+                    <button name="comprar_pelicula"
+                        string="Comprar película"
+                        type="object"
+                        confirm="¿Está seguro que quiere COMPRAR esta película?"
+                    />
+                    
+                    <button name="vender_pelicula"
+                        string="Vender película"
+                        type="object"
+                        confirm="¿Está seguro que quiere VENDER esta película?"
+                    />
+                </footer>
             </sheet>
         </form>
       </field>
