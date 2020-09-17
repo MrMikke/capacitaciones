@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_cvp_cvp,cvp.cvp,model_cvp_cvp,,1,1,1,1
 access_cvp_peliculas,cvp.peliculas,model_cvp_peliculas,,1,1,1,1
 access_cvp_generos,cvp.generos,model_cvp_generos,,1,1,1,1
+access_cvp_studio,cvp.studio,model_cvp_studio,,1,1,1,1

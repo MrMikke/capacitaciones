@@ -17,12 +17,3 @@ class studio(models.Model):
         'cvp.peliculas',
         'mi_campo_peliculas',
     )
-    
-#     descripcion=fields.Many2many(
-#         'cyp.peliculas',
-#         string="Descripción"
-#     )
-
-#     alumnos3=fields.Many2many(
-#             string="ALUMNOS3"
-#         )
