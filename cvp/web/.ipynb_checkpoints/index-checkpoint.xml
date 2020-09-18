@@ -1,0 +1,15 @@
+<odoo>
+
+        <template id="index">
+            <title>contactos</title>
+            <t t-foreach="contacts" t-as="contact">
+<!--               <p><t t-esc="/web/image/res.partner/contact.id/image_1024"/></p> -->
+            
+              <img t-attf-src="/web/image/res.partner/{{contact.id}}/image_1024/"/>
+              <p><t t-esc="contact.id"/></p>
+              <p><t t-esc="contact.name"/></p>
+              <p><t t-esc="contact.street"/>,<t t-esc="contact.state_id.name"/>, <t t-esc="contact.zip"/>, <t t-esc="contact.country_id.name"/></p>
+            </t>
+        </template>
+    
+</odoo>

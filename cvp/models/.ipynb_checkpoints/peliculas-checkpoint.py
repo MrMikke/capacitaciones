@@ -87,6 +87,7 @@ class cvp_peliculas(models.Model):
     def inactive(self):
         for rec in self:
             rec.state="I"
+            
     def create_sale(self):
         for rec in self:
             _logger.warning("CREAR VENTA")
@@ -125,5 +126,6 @@ class cvp_peliculas(models.Model):
             })
             
             
+
 
     

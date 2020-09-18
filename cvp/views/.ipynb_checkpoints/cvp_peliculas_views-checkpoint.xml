@@ -48,7 +48,7 @@
                                 <field name="studio" string="Estudio"
                                        attrs="{'readonly':[('state','=','I')]}"/>
                                 <field name="director" string="Director"
-                                       attrs="{'readonly':[('state','=','I')]}"/>
+                                       attrs="{'readonly':[('state','=','I')]}" />
                                 <field name="producto_asociado" string="Producto"
                                        attrs="{'readonly':[('state','=','I')]}"/>
                                 <field name="sinopsis" string="Sinopsis"
@@ -68,7 +68,7 @@
                             </page>
                             <page string="Actores" groups="cvp.admin_cvp_group,cvp.empleados_cvp_group" attrs="{'readonly':[('state','=','I')]}">
                                 <field name="actores_contactos" string="Actores" widget="many2many"
-                                       attrs="{'readonly':[('state','=','I')]}"/>
+                                       attrs="{'readonly':[('state','=','I')]}" />
                             </page>
                             <page string="Generos" groups="cvp.admin_cvp_group,cvp.empleados_cvp_group" attrs="{'readonly':[('state','=','I')]}">
                                 <field name="generos" widget="many2many"

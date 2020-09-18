@@ -31,6 +31,7 @@
         'views/cvp_estudios_views.xml',
         'views/cvp_generos_views.xml',
         'views/templates.xml',
+        'web/index.xml',
         
     ],
     # only loaded in demonstration mode
