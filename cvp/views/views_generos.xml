@@ -11,12 +11,34 @@
       </field>
     </record>
       
+    <record id="act_cvp_generos_2_cvp_peliculas" model="ir.actions.act_window">
+      <field name="name">peliculas</field>
+      <field name="res_model">cvp.peliculas</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">
+        {
+          'search_default_generos': active_id, 
+          'default_generos': active_id,
+        }
+      </field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          No hay peliculas para este genero aún...
+        </p>
+      </field>
+    </record>
+      
           <record model="ir.ui.view" id="form_cvp_generos">
           <field name="name">cvp generos form</field>
           <field name="model">cvp.generos</field>
           <field name="arch" type="xml">
             <form>
               <sheet>
+                  <div class="oe_button_box" name="button_box">
+                      <button class="oe_stat_button" name="%(cvp.act_cvp_generos_2_cvp_peliculas)d" type="action" icon="fa-film" >
+                          <field string="peliculas" name="cvp_peliculas_count" widget="statinfo"/>
+                      </button>
+                  </div>
                   <label for="genero" string="Nombre del género"/>
                   <field name="genero" /><br/>
                   <label for="descripcion" string="Descripcion del género"/>

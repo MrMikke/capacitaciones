@@ -21,8 +21,16 @@ class generos(models.Model):
         'cvp.peliculas',
         string="Nombre del genero"
     )
+    
+    def _calc_cvp_peliculas_count(self):
+        for rec in self:
+            rec.cvp_peliculas_count = rec.env['cvp.peliculas'].search_count([('genero','=',rec.id)])
+    cvp_peliculas_count = fields.Integer(
+        string="Contador de peliculas", 
+        compute="_calc_cvp_peliculas_count"
+    )
 #     descripcion=fields.Many2many(
-#         'cyp.peliculas',
+#         'cvp.peliculas',
 #         string="Descripción"
 #     )
 
