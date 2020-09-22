@@ -124,3 +124,24 @@ class peliculas(models.Model):
                 "price_unit": rec.total,
                 "date_planned": datetime.datetime.now()
             })
+            
+class cvp_wizard_peliculas(models.TransientModel):
+    _name = 'cvp.wizard_peliculas'
+    _description = "Wizard para peliculas para reportes"
+    
+    valor_active_id=fields.Char(
+        string="Valor del active id"
+    )
+    
+    valor_active_model=fields.Char(
+        string="Valor del active model"
+    )
+    
+    peliculas=fields.Many2many(
+        'cvp.peliculas',
+        string="peliculas"
+    )
+    
+    def imprimir(self):
+        for rec in self:
+            return self.env.ref('cvp.cvp_wizard_peliculas_report').report_action(self)

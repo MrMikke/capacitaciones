@@ -35,6 +35,7 @@
         'views/views.xml',
         'views/views_generos.xml',
         'views/views_studio.xml',
+        'views/cvp_wizard_peliculas.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode
