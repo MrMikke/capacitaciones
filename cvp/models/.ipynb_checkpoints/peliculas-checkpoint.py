@@ -126,6 +126,43 @@ class cvp_peliculas(models.Model):
             })
             
             
+class cvp_wizard_peliculas(models.TransientModel):
+    _name = 'cvp.wizard_peliculas'
+    _description = "Wizard para peliculas para reportes"
+    
+    valor_active_id=fields.Char(
+        string="Valor del active id"
+    )
+    
+    valor_active_model=fields.Char(
+        string="Valor del active model"
+    )
+    name=fields.Char(
+        string="Nombre"
+    )
+    director=fields.Char(
+        string="Director"
+    )
+    sinopsis=fields.Text(
+        string="Sinopsis"
+    )
+    peliculas=fields.Many2many(
+        'cvp.peliculas',
+        string="peliculas"
+    )
+    
+    @api.onchange('valor_active_id')
+    def _onchange_active_id(self):
+        for rec in self:
+            pelicula_record=rec.env['cvp.peliculas'].search([('id','=',rec.valor_active_id)])
+            rec.name=pelicula_record.name
+            rec.director=pelicula_record.director.name
+            rec.sinopsis=pelicula_record.sinopsis
+            rec.peliculas=pelicula_record
+    def imprimir(self):
+        for rec in self:
+            return self.env.ref('cvp.cvp_wizard_peliculas_report').report_action(self)
+            
 
 
     

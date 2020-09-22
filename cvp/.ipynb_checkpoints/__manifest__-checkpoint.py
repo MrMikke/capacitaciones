@@ -31,6 +31,8 @@
         'views/cvp_estudios_views.xml',
         'views/cvp_generos_views.xml',
         'views/templates.xml',
+        'views/cvp_wizard_peliculas.xml',
+        'reports/cvp_peliculas_report.xml',
         'web/index.xml',
         
     ],
