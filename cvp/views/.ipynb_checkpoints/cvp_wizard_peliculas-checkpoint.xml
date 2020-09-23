@@ -5,7 +5,7 @@
             <field name="model">cvp.wizard_peliculas</field>
             <field name="arch" type="xml">
                 <form string="Add Attendees">
-                    <field name="peliculas" string="peliculas"/>
+                    <field name="name" string="name"/>
                     <field name="valor_active_id" string="valor_active_id"/>
                     <field name="valor_active_model" string="valor_active_model"/>
                     <footer>
