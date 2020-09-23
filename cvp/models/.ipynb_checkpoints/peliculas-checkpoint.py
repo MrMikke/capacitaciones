@@ -142,32 +142,34 @@ class cvp_wizard_peliculas(models.TransientModel):
         string="Nombre"
     )
     
+    sinopsis=fields.Text(
+        string="Sinopsis"
+    )
+    
+    fecha_lanzamiento=fields.Date(
+        string="Fecha de lanzamiento"
+    )
+    
+    longitud_minutos=fields.Float(
+        string="Longitud en minutos"
+    )
+    
+    genero=fields.Many2many(
+        string="Género"
+    )
+    
     @api.onchange('valor_active_id')
     def _onchange_active_id(self):
         for rec in self:
             pelicula_record=rec.env['cvp.peliculas'].search([('id','=',rec.valor_active_id)])
             rec.name=pelicula_record.name
+            rec.sinopsis=pelicula_record.sinopsis
+            rec.fecha_lanzamiento=pelicula_record.fecha_lanzamiento
+            rec.longitud_minutos=pelicula_record.longitud_minutos
+            for genero in pelicula_record.genero:
+                rec.genero+=genero
+            
+            
     
     def imprimir(self):
             return self.env.ref('cvp.cvp_wizard_peliculas_report').report_action(self)
-            
-# class cvp_wizard_peliculas(models.TransientModel):
-#     _name = 'cvp.wizard_peliculas'
-#     _description = "Wizard para peliculas para reportes"
-    
-#     valor_active_id=fields.Char(
-#         string="Valor del active id"
-#     )
-    
-#     valor_active_model=fields.Char(
-#         string="Valor del active model"
-#     )
-    
-#     peliculas=fields.Many2many(
-#         'cvp.peliculas',
-#         string="peliculas"
-#     )
-    
-#     def imprimir(self):
-#         for rec in self:
-#             return self.env.ref('cvp.cvp_wizard_peliculas_report').report_action(self)
