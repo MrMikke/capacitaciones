@@ -131,7 +131,6 @@ class cvp_wizard_peliculas(models.TransientModel):
     
     valor_active_id=fields.Char(
         string="Valor del active id",
-        compute="_value_pc"
     )
     
     valor_active_model=fields.Char(
@@ -155,6 +154,7 @@ class cvp_wizard_peliculas(models.TransientModel):
     )
     
     genero=fields.Many2many(
+        'cvp.generos',
         string="Género"
     )
     
