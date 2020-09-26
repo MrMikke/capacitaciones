@@ -150,7 +150,6 @@ class cvp_wizard_peliculas(models.TransientModel):
     )
     
     longitud_minutos=fields.Float(
-        string="Longitud en minutos"
     )
     
     genero=fields.Many2many(

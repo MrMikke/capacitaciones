@@ -25,6 +25,23 @@
 
                         <!--  POR CADA LIBRO  -->
                         <t t-foreach="doc.peliculas" t-as="pelicula">
+                            <t t-set="inicial" t-value="pelicula.longitud_minutos / 60"/>
+                            <t t-set="horas" t-value="int(pelicula.longitud_minutos / 60)"/>
+                            <t t-set="minutos" t-value="int(((pelicula.longitud_minutos / 60) - horas) * 60)"/>
+                            
+                            <t t-if="minutos &lt; 10">
+                                <t t-set="duracion" t-value="'0' + str(horas) + ' : 0' + str(minutos) + ' : 00'"/>
+                            </t>
+                            <t t-else="">
+                                <t t-set="duracion" t-value="'0' + str(horas) + ' : ' + str(minutos) + ' : 00'"/>
+                            </t>
+                            
+<!--                             pelicula_longitud_minutos_entre_60: <t t-esc="inicial"/><br/>
+                            pelicula_longitud_minutos_entre_60: <t t-esc="inicial"/><br/>
+                            horas: <t t-esc="str(horas)"/><br/>
+                            minutos: <t t-esc="str(minutos)"/><br/>
+                            Duracion: <t t-esc="duracion"/><br/> -->
+                            
                             <table border="1" style="margin: 0 auto;">
                                 <tr>
                                     <th height="50" width="100%" colspan="4">
@@ -43,7 +60,7 @@
                                         Fecha de lanzamiento<br/><t t-esc="pelicula.fecha_lanzamiento"/>
                                     </td>
                                     <td height="50" width="200" style="text-align: center;">
-                                        Duración<br/><t t-esc="pelicula.longitud_minutos"/>
+                                        Duración<br/><t t-esc="duracion"/>
                                     </td>
                                     <td height="50" width="200" style="text-align: center;">
                                         Genero<br/>
@@ -53,21 +70,6 @@
                                     </td>
                                 </tr>
                             </table>
-
-
-    <!--                         <label>
-                                <b>Este libro lo puedes encontrar en: </b>
-                            </label>
-                            <label>
-                                <t t-esc="pelicula.libreria.name_libreria"/>
-                            </label>
-                            <br/>
-                            <label>
-                                <b>Encargado: </b>
-                            </label>
-                            <label>
-                                <t t-esc="pelicula.libreria.name_encargado"/>
-                            </label> -->
                             <br/>
                             <br/>
                             <br/>

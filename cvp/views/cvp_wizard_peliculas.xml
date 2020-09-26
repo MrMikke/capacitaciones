@@ -15,7 +15,7 @@
                     <field name="fecha_lanzamiento" string="fecha_lanzamiento" readonly="1"/>
                     <br/>
                     <label for="longitud_minutos">Duración</label><br/>
-                    <field name="longitud_minutos" string="longitud_minutos" readonly="1"/>
+                    <field name="longitud_minutos" readonly="1"/>
                     
                     <field name="genero" string="genero" readonly="1"/>
                     
