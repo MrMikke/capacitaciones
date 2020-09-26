@@ -5,12 +5,22 @@
             <field name="model">cvp.wizard_peliculas</field>
             <field name="arch" type="xml">
                 <form string="Add Attendees">
+                    <label for="name">Nombre</label><br/>
                     <field name="name" string="name" readonly="1"/>
+                    <br/>
+                    <label for="sinopsis">Sinopsis</label><br/>
                     <field name="sinopsis" string="sinopsis" readonly="1"/>
+                    <br/>
+                    <label for="fecha_lanzamiento">Fecha de lanzamiento</label><br/>
                     <field name="fecha_lanzamiento" string="fecha_lanzamiento" readonly="1"/>
+                    <br/>
+                    <label for="longitud_minutos">Duración</label><br/>
                     <field name="longitud_minutos" string="longitud_minutos" readonly="1"/>
+                    
                     <field name="genero" string="genero" readonly="1"/>
-                    <field name="peliculas" string="peliculas"/>
+                    
+                    <label for="peliculas">Películas para reporte</label><br/>
+                    <field name="peliculas"/>
                     
                     <field name="valor_active_id" string="valor_active_id" invisible="1"/>
                     <field name="valor_active_model" string="valor_active_model" invisible="1"/>

@@ -160,7 +160,6 @@ class cvp_wizard_peliculas(models.TransientModel):
     
     peliculas=fields.Many2many(
         'cvp.peliculas',
-        string="peliculas"
     )
     
     @api.onchange('valor_active_id')
@@ -170,7 +169,7 @@ class cvp_wizard_peliculas(models.TransientModel):
             rec.name=pelicula_record.name
             rec.sinopsis=pelicula_record.sinopsis
             rec.fecha_lanzamiento=pelicula_record.fecha_lanzamiento
-            rec.longitud_minutos=pelicula_record.longitud_minutos
+            rec.longitud_minutos=pelicula_record.longitud_minutos/60
             for genero in pelicula_record.genero:
                 rec.genero+=genero
             
