@@ -1,52 +1,80 @@
 <odoo>
     <data>
-        <report
-            id="cvp_wizard_peliculas_report"
-            model="cvp.wizard_peliculas"
-            string="Wizard peliculas"
-            report_type="qweb-pdf"
-            name="cvp.cvp_wizard_peliculas"
-            file="cvp.cvp_wizard_peliculas_report"
-            attachment_use="True"
-            print_report_name="(object.id)"
-            paperformat="base.paperformat_us"
-        />
-        
+        <report id="cvp_wizard_peliculas_report"
+                model="cvp.wizard_peliculas"
+                string="Wizard peliculas"
+                report_type="qweb-pdf"
+                name="cvp.cvp_wizard_peliculas"
+                file="cvp.cvp_wizard_peliculas_report"
+                attachment_use="True"
+                print_report_name="(object.id)"
+                paperformat="base.paperformat_us" />
+
         <template id="cvp_wizard_peliculas">
             <t t-call="web.html_container">
-                
-              <t t-foreach="docs" t-as="doc">
-                  <div class="header">
-                      <span>
-                          REPORTE DE peliculas
-                      </span>
-                  </div>
-                  
-                  <t t-foreach="doc.peliculas" t-as="peliculas">
-                      <table border="1">
-                          <tr>
-                              <th height="50" width="100%" style="color:red" colspan="4"><t t-esc="peliculas.name"/></th>
-                          </tr>
-                          
-<!--                           <tr>
-                              <td height="50" width="200" style="text-align: center;"><t t-esc="peliculas.editorial"/></td>
-                              <td height="50" width="200" style="text-align: center;"><t t-esc="peliculas.name_autor"/></td>
-                              <td height="50" width="200" style="text-align: center;"><t t-esc="peliculas.numero_paginas"/></td>
-                              <td height="50" width="200" style="text-align: center;"><t t-esc="peliculas.numero_paginas / 2"/></td>
-                          </tr>
-                          
-                          <tr>
-                              <td colspan="4" style="text-align: center;"><t t-esc="tamano_libro"/></td>
-                          </tr> -->
-                      </table>
-<!--                       <label><b>Este libro lo puedes encontrar en: </b></label>
-                      <label><t t-esc="peliculas.libreria.name_libreria"/></label><br/>
-                      <label><b>Encargado: </b></label>
-                      <label><t t-esc="peliculas.libreria.name_encargado"/></label> -->
-                  </t>
-                  
-              </t>
-          </t>
+                <div style="text-align:center;">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="header" style="text-align: center;">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <span>
+                              REPORTE DE PELÍCULAS
+                            </span>
+                        </div>
+
+                        <!--  POR CADA LIBRO  -->
+                        <t t-foreach="doc.peliculas" t-as="pelicula">
+                            <table border="1" style="margin: 0 auto;">
+                                <tr>
+                                    <th height="50" width="100%" colspan="4">
+                                        <b><t t-esc="pelicula.name"/></b>
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="4" style="text-align: center;">
+                                        <t t-esc="pelicula.sinopsis"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td height="50" width="200" style="text-align: center;">
+                                        Fecha de lanzamiento<br/><t t-esc="pelicula.fecha_lanzamiento"/>
+                                    </td>
+                                    <td height="50" width="200" style="text-align: center;">
+                                        Duración<br/><t t-esc="pelicula.longitud_minutos"/>
+                                    </td>
+                                    <td height="50" width="200" style="text-align: center;">
+                                        Genero<br/>
+                                        <t t-foreach="pelicula.genero" t-as="genero">
+                                          <span><t t-esc="genero.genero"/> </span>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+    <!--                         <label>
+                                <b>Este libro lo puedes encontrar en: </b>
+                            </label>
+                            <label>
+                                <t t-esc="pelicula.libreria.name_libreria"/>
+                            </label>
+                            <br/>
+                            <label>
+                                <b>Encargado: </b>
+                            </label>
+                            <label>
+                                <t t-esc="pelicula.libreria.name_encargado"/>
+                            </label> -->
+                            <br/>
+                            <br/>
+                            <br/>
+                        </t>
+                    </t>
+                </div>
+            </t>
         </template>
     </data>
 </odoo>

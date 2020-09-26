@@ -10,6 +10,7 @@
                     <field name="fecha_lanzamiento" string="fecha_lanzamiento" readonly="1"/>
                     <field name="longitud_minutos" string="longitud_minutos" readonly="1"/>
                     <field name="genero" string="genero" readonly="1"/>
+                    <field name="peliculas" string="peliculas"/>
                     
                     <field name="valor_active_id" string="valor_active_id" invisible="1"/>
                     <field name="valor_active_model" string="valor_active_model" invisible="1"/>
