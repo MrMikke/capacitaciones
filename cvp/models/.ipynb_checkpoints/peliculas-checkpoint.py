@@ -158,6 +158,11 @@ class cvp_wizard_peliculas(models.TransientModel):
         string="Género"
     )
     
+    peliculas=fields.Many2many(
+        'cvp.peliculas',
+        string="peliculas"
+    )
+    
     @api.onchange('valor_active_id')
     def _onchange_active_id(self):
         for rec in self:

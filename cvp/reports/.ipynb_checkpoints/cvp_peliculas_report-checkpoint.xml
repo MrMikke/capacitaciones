@@ -21,6 +21,30 @@
                           REPORTE DE peliculas
                       </span>
                   </div>
+                  
+                  <t t-foreach="doc.peliculas" t-as="peliculas">
+                      <table border="1">
+                          <tr>
+                              <th height="50" width="100%" style="color:red" colspan="4"><t t-esc="peliculas.name"/></th>
+                          </tr>
+                          
+<!--                           <tr>
+                              <td height="50" width="200" style="text-align: center;"><t t-esc="peliculas.editorial"/></td>
+                              <td height="50" width="200" style="text-align: center;"><t t-esc="peliculas.name_autor"/></td>
+                              <td height="50" width="200" style="text-align: center;"><t t-esc="peliculas.numero_paginas"/></td>
+                              <td height="50" width="200" style="text-align: center;"><t t-esc="peliculas.numero_paginas / 2"/></td>
+                          </tr>
+                          
+                          <tr>
+                              <td colspan="4" style="text-align: center;"><t t-esc="tamano_libro"/></td>
+                          </tr> -->
+                      </table>
+<!--                       <label><b>Este libro lo puedes encontrar en: </b></label>
+                      <label><t t-esc="peliculas.libreria.name_libreria"/></label><br/>
+                      <label><b>Encargado: </b></label>
+                      <label><t t-esc="peliculas.libreria.name_encargado"/></label> -->
+                  </t>
+                  
               </t>
           </t>
         </template>

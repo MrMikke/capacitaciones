@@ -54,13 +54,14 @@
                 </group>
                 <notebook>
                     <page>
-                        <field name="genero" attrs="{'readonly':[('state','=','A')]}"/> 
-                        <field name="director" attrs="{'readonly':[('state','=','A')]}"/> 
-                        <field name="actores" widget="many2many" attrs="{'readonly':[('state','=','A')]}"/> 
+<!--                         <field name="genero" attrs="{'readonly':[('state','=','A')]}"/>  -->
+                        <field name="genero" /> 
+                        <field name="director" /> 
+                        <field name="actores" widget="many2many" /> 
                         <field name="producto_asociado" /> 
         <!--                 <label string="$"></label> -->
-                        <field name="costo_pelicula" attrs="{'readonly':[('state','=','A')]}"/> 
-                        <field name="iva" attrs="{'readonly':[('state','=','A')]}"/> 
+                        <field name="costo_pelicula" /> 
+                        <field name="iva" /> 
         <!--                 <label string="$"></label> -->
                         <field name="total" />
                     </page>
