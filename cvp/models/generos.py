@@ -19,7 +19,7 @@ class generos(models.Model):
 
     peliculas=fields.Many2many(
         'cvp.peliculas',
-        string="Nombre del genero"
+        string="Nombre de la película"
     )
     
     def _calc_cvp_peliculas_count(self):
@@ -29,11 +29,49 @@ class generos(models.Model):
         string="Contador de peliculas", 
         compute="_calc_cvp_peliculas_count"
     )
-#     descripcion=fields.Many2many(
-#         'cvp.peliculas',
-#         string="Descripción"
-#     )
-
-#     alumnos3=fields.Many2many(
-#             string="ALUMNOS3"
-#         )
+    
+class cvp_wizard_generos(models.TransientModel):
+    _name = 'cvp.wizard_generos'
+    _description = "Wizard para generos para reportes"
+    
+    valor_active_id=fields.Char(
+        string="Valor del active id",
+    )
+    
+    valor_active_model=fields.Char(
+        string="Valor del active model"
+    )
+    
+    genero=fields.Char(
+        string="Nombre del genero"
+    )
+    
+    solo_generos=fields.Boolean(
+        default=True
+    )
+    
+    peliculas=fields.Many2many(
+        'cvp.peliculas',
+    )
+    
+    todos_los_generos=fields.Many2many(
+        'cvp.generos',
+    )
+    
+    @api.onchange('valor_active_id')
+    def _onchange_active_id(self):
+        _logger.warning("ON CHANGE")
+        for rec in self:
+            genero_record=rec.env['cvp.generos'].search([('id','=',rec.valor_active_id)])
+            todos=rec.env['cvp.generos'].genero
+            rec.genero=genero_record.genero
+            for peliculas in genero_record.peliculas:
+                rec.peliculas+=peliculas
+            
+            _logger.warning("-------------")
+#             _logger.warning("genero_record.genero: " + genero_record.genero)
+            for ciclo in genero_record.genero:
+                _logger.warning("ciclo_a: " + ciclo)
+                
+    def imprimir(self):
+            return self.env.ref('cvp.cvp_wizard_generos_report').report_action(self)

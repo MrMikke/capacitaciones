@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_cvp_generos_view">
+            <field name="name">Wizard cvp generos</field>
+            <field name="model">cvp.wizard_generos</field>
+            <field name="arch" type="xml">
+                <form string="Add Attendees">
+                    <label for="genero">Género</label><br/>
+                    <field name="genero" string="name" readonly="1"/>
+                    <br/>
+                    <field name="peliculas" string="peliculas" readonly="1"/>
+                    <br/>
+                    <field name="todos_los_generos" string="todos_los_generos"/>
+                    <br/>
+                    <field name="solo_generos" type="checkbox" id="oe_import_tracking"/> Imprimir sólo géneros
+                    
+                    <field name="valor_active_id" string="valor_active_id" invisible="1"/>
+                    <field name="valor_active_model" string="valor_active_model" invisible="1"/>
+                    <footer>
+                        <button name="imprimir"
+                            string="IMPRIMIR" type="object"
+                            class="btn-primary oe_highlight"
+                        />
+                        <button string="CERRAR"
+                            class="btn-default"
+                            special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="launch_cvp_wizard_generos"
+                    name="Generar reporte - generos"
+                    binding_model="cvp.generos"
+                    res_model="cvp.wizard_generos"
+                    view_mode="form"
+                    target="new"
+                    context="{'default_valor_active_id':active_id,'default_valor_active_model':active_model}"
+                    />
+    </data>
+</odoo>
