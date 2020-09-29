@@ -35,13 +35,7 @@
                             <t t-else="">
                                 <t t-set="duracion" t-value="'0' + str(horas) + ' : ' + str(minutos) + ' : 00'"/>
                             </t>
-                            
-<!--                             pelicula_longitud_minutos_entre_60: <t t-esc="inicial"/><br/>
-                            pelicula_longitud_minutos_entre_60: <t t-esc="inicial"/><br/>
-                            horas: <t t-esc="str(horas)"/><br/>
-                            minutos: <t t-esc="str(minutos)"/><br/>
-                            Duracion: <t t-esc="duracion"/><br/> -->
-                            
+s                            
                             <table border="1" style="margin: 0 auto;">
                                 <tr>
                                     <th height="50" width="100%" colspan="4">

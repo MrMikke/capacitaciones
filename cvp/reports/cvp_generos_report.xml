@@ -21,6 +21,38 @@
                             <span>
                               REPORTE DE GENEROS
                             </span>
+                            
+                            <table border="1">
+                                <tr>
+                                    <th height="50" width="100%" colspan="4">
+                                        <span>Listado de géneros existentes</span>
+                                    </th>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <span>Columna 1</span>
+                                    </td>
+                                    <td>
+                                        <span>Columna 2</span>
+                                    </td>
+                                    <td>
+                                        <span>Columna 3</span>
+                                    </td>
+                                </tr>
+                                
+<!--                                 <t t-foreach="doc.todos_los_generos" t-as="genero_actual">
+                                    <tr>
+                                        <td colspan="4" style="text-align: center;">
+                                            <b><t t-esc="genero_actual.genero"/></b>
+                                        </td>
+                                    </tr>
+                                </t> -->
+
+                            </table>
+                            <br/>
+                            <br/>
+                            <br/>
                         </div>
                     </t>
                 </div>
