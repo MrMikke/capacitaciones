@@ -19,41 +19,40 @@
                             <br/>
                             <br/>
                             <span>
-                              REPORTE DE GENEROS
+                                REPORTE DE GENEROS
                             </span>
-                            
-                            <table border="1">
-                                <tr>
-                                    <th height="50" width="100%" colspan="4">
-                                        <span>Listado de géneros existentes</span>
-                                    </th>
-                                </tr>
-                                
-                                <tr>
-                                    <td>
-                                        <span>Columna 1</span>
-                                    </td>
-                                    <td>
-                                        <span>Columna 2</span>
-                                    </td>
-                                    <td>
-                                        <span>Columna 3</span>
-                                    </td>
-                                </tr>
-                                
-<!--                                 <t t-foreach="doc.todos_los_generos" t-as="genero_actual">
-                                    <tr>
-                                        <td colspan="4" style="text-align: center;">
-                                            <b><t t-esc="genero_actual.genero"/></b>
-                                        </td>
-                                    </tr>
-                                </t> -->
-
-                            </table>
                             <br/>
                             <br/>
                             <br/>
                         </div>
+                        <span>Listado de géneros existentes</span><br/>
+                        <t t-foreach="doc.todos_los_generos" t-as="genero_actual">
+                            <b><t t-esc="genero_actual.genero"/></b><br/>
+                        </t>
+
+                        <table border="1" style="margin: 0 auto;">
+                            <tr>
+                                <th height="50" width="100%" colspan="4">
+                                    <span>Genero 1</span>
+                                </th>
+                            </tr>
+
+                            <tr>
+                                <td height="50" width="200" style="text-align: center;">
+                                    Fecha de lanzamiento<br/>
+                                </td>
+                                <td height="50" width="200" style="text-align: center;">
+                                    Duración<br/>
+                                </td>
+                                <td height="50" width="200" style="text-align: center;">
+                                    Genero<br/>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <br/>
+                        <br/>
+                        <br/>
                     </t>
                 </div>
             </t>

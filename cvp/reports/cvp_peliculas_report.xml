@@ -35,7 +35,7 @@
                             <t t-else="">
                                 <t t-set="duracion" t-value="'0' + str(horas) + ' : ' + str(minutos) + ' : 00'"/>
                             </t>
-s                            
+                            
                             <table border="1" style="margin: 0 auto;">
                                 <tr>
                                     <th height="50" width="100%" colspan="4">
