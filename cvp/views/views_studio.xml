@@ -20,8 +20,6 @@
                   <field name="name" /><br/>
                   <label for="peliculas" string="Peliculas asociadas"/>
                   <field name="peliculas" widget="many2many"/><br/>
-<!--                   <label for="descripcion" string="Nombre de la descripcion"/>
-                  <field name="descripcion" /><br/> -->
               </sheet>
           </form>
         </field>

@@ -9,7 +9,7 @@ class generos(models.Model):
     _name = 'cvp.generos'
     _description = 'Modelo para crear generos de películas'
     
-    genero=fields.Char(
+    name=fields.Char(
         string="Nombre del genero"
     )
     
@@ -42,7 +42,7 @@ class cvp_wizard_generos(models.TransientModel):
         string="Valor del active model"
     )
     
-    genero=fields.Char(
+    name=fields.Char(
         string="Nombre del genero"
     )
     
@@ -63,14 +63,13 @@ class cvp_wizard_generos(models.TransientModel):
         _logger.warning("ON CHANGE")
         for rec in self:
             genero_record=rec.env['cvp.generos'].search([('id','=',rec.valor_active_id)])
-            todos=rec.env['cvp.generos'].genero
-            rec.genero=genero_record.genero
+            rec.name=genero_record.name
             for peliculas in genero_record.peliculas:
                 rec.peliculas+=peliculas
             
             _logger.warning("-------------")
 #             _logger.warning("genero_record.genero: " + genero_record.genero)
-            for ciclo in genero_record.genero:
+            for ciclo in genero_record.name:
                 _logger.warning("ciclo_a: " + ciclo)
                 
     def imprimir(self):

@@ -5,7 +5,7 @@
       <field name="model">cvp.generos</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="genero" string="Género"/>
+          <field name="name" string="Genero"/>
           <field name="descripcion" string="Descripción"/>
         </tree>
       </field>
@@ -39,14 +39,11 @@
                           <field string="peliculas" name="cvp_peliculas_count" widget="statinfo"/>
                       </button>
                   </div>
-                  <label for="genero" string="Nombre del género"/>
-                  <field name="genero" /><br/>
+                  <label for="name" string="Nombre del género"/>
+                  <field name="name" /><br/>
                   <label for="descripcion" string="Descripcion del género"/>
                   <field name="descripcion" /><br/>
-                  <label for="peliculas" string="Peliculas asociadas"/>
-                  <field name="peliculas" /><br/>
-<!--                   <label for="descripcion" string="Nombre de la descripcion"/>
-                  <field name="descripcion" /><br/> -->
+                  <field name="peliculas" invisible="1"/><br/>
               </sheet>
           </form>
         </field>

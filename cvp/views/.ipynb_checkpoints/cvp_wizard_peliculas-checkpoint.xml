@@ -17,7 +17,7 @@
                     <label for="longitud_minutos">Duración</label><br/>
                     <field name="longitud_minutos" readonly="1"/>
                     
-                    <field name="genero" string="genero" readonly="1"/>
+                    <field name="name" string="name" readonly="1"/>
                     
                     <label for="peliculas">Películas para reporte</label><br/>
                     <field name="peliculas"/>

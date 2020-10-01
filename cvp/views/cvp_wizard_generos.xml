@@ -5,8 +5,8 @@
             <field name="model">cvp.wizard_generos</field>
             <field name="arch" type="xml">
                 <form string="Add Attendees">
-                    <label for="genero">Género</label><br/>
-                    <field name="genero" string="name" readonly="1"/>
+                    <label for="name">Género</label><br/>
+                    <field name="name" string="name" readonly="1"/>
                     <br/>
                     <field name="peliculas" string="peliculas" readonly="1"/>
                     <br/>

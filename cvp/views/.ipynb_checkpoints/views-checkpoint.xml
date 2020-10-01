@@ -1,19 +1,6 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-
-    <record model="ir.ui.view" id="cvp.list">
-      <field name="name">cvp list</field>
-      <field name="model">cvp.cvp</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
-      </field>
-    </record>
-      
     <record model="ir.ui.view" id="tree_cvp_peliculas">
       <field name="name">cvp peliculas tree</field>
       <field name="model">cvp.peliculas</field>
@@ -93,7 +80,6 @@
 
 
     <!-- actions opening views on models -->
-
     <record model="ir.actions.act_window" id="cvp.action_window">
       <field name="name">cvp window</field>
       <field name="res_model">cvp.cvp</field>
@@ -108,7 +94,6 @@
 
 
     <!-- server action to the one above -->
-
     <record model="ir.actions.server" id="cvp.action_server">
       <field name="name">cvp server</field>
       <field name="model_id" ref="model_cvp_cvp"/>
@@ -124,22 +109,13 @@
 
 
     <!-- Top menu item -->
-
     <menuitem name="cvp" id="cvp.menu_root"/>
 
     <!-- menu categories -->
-
-    <menuitem name="Menu 1" id="cvp.menu_1" parent="cvp.menu_root"/>
-    <menuitem name="Menu 2" id="cvp.menu_2" parent="cvp.menu_root"/>
     <menuitem name="Películas" id="cvp.peliculas" parent="cvp.menu_root"
                 action="cvp.action_peliculas"/>
 
     <!-- actions -->
-
-    <menuitem name="List" id="cvp.menu_1_list" parent="cvp.menu_1"
-              action="cvp.action_window"/>
-    <menuitem name="Server to list" id="cvp" parent="cvp.menu_2"
-              action="cvp.action_server"/>
 
   </data>
 </odoo>
