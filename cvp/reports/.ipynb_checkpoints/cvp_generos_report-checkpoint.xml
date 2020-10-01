@@ -23,36 +23,50 @@
                             </span>
                             <br/>
                             <br/>
-                            <br/>
                         </div>
-                        <span>Listado de géneros existentes</span><br/>
-                        <t t-foreach="doc.todos_los_generos" t-as="genero_actual">
-                            <b><t t-esc="genero_actual.genero"/></b><br/>
-                        </t>
-
-                        <table border="1" style="margin: 0 auto;">
+                        <!-- TODOS LOS GENEROS EXISTENTES -->
+                        <table border="1" style="margin: 0 auto; border: 2px black solid;">
                             <tr>
-                                <th height="50" width="100%" colspan="4">
-                                    <span>Genero 1</span>
+                                <th height="50" width="800" colspan="4">
+                                    <span>Listado de géneros existentes</span>
                                 </th>
                             </tr>
-
+                            
                             <tr>
-                                <td height="50" width="200" style="text-align: center;">
-                                    Fecha de lanzamiento<br/>
-                                </td>
-                                <td height="50" width="200" style="text-align: center;">
-                                    Duración<br/>
-                                </td>
-                                <td height="50" width="200" style="text-align: center;">
-                                    Genero<br/>
+                                <td height="50" style="text-align: center;">
+                                    <t t-foreach="doc.todos_los_generos" t-as="genero_actual">
+                                        <t t-esc="genero_actual.genero"/><br/>
+                                    </t>
                                 </td>
                             </tr>
-
                         </table>
                         <br/>
                         <br/>
-                        <br/>
+                        
+                        <t t-if="doc.solo_generos == False">
+                            <!-- RELACION GENEROS - PELICULAS -->
+                            <t t-foreach="doc.todos_los_generos" t-as="genero_actual">
+                                <table border="1" style="margin: 0 auto;">
+                                    <tr>
+                                        <th height="50" width="100%" colspan="4">
+                                            <t t-esc="genero_actual.genero"/>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td min-height="100" width="600" style="text-align: center;">
+                                            <t t-foreach="genero_actual.peliculas" t-as="pelicula">
+                                                <br/><t t-esc="pelicula.name"/><br/>
+                                            </t>
+                                            <br/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br/>
+                                <br/>
+                                <br/>
+                            </t>
+                        </t>
+                        <t t-else=""></t>
                     </t>
                 </div>
             </t>
