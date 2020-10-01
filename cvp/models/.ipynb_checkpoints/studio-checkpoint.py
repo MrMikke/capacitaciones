@@ -9,7 +9,7 @@ class studio(models.Model):
     _name = 'cvp.studio'
     _description = 'Modelo para crear studios'
     
-    nombre_studio=fields.Char(
+    name=fields.Char(
         string="Nombre del genero"
     )
     

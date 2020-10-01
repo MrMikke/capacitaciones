@@ -53,16 +53,22 @@
                     </group>
                 </group>
                 <notebook>
-                    <page>
+                    <page string="Pestaña 1" id="page_1">
 <!--                         <field name="genero" attrs="{'readonly':[('state','=','A')]}"/>  -->
-                        <field name="genero" /> 
-                        <field name="director" /> 
-                        <field name="actores" widget="many2many" /> 
-                        <field name="producto_asociado" /> 
-        <!--                 <label string="$"></label> -->
-                        <field name="costo_pelicula" /> 
-                        <field name="iva" /> 
-        <!--                 <label string="$"></label> -->
+                        <field name="genero" />
+                        <label for="director" string="Director"/>
+                        <field name="director" /><br/>
+                        <label for="actores" string="Actores"/>
+                        <field name="actores" widget="many2many" />
+                        <label for="mi_campo_peliculas" string="Estudio de grabación"/>
+                        <field name="mi_campo_peliculas" /><br/>
+                        <label for="producto_asociado" string="Producto asociado"/>
+                        <field name="producto_asociado" /><br/>
+                        <label for="costo_pelicula" string="Costo de la película"/>
+                        <field name="costo_pelicula" /><br/>
+                        <label for="iva" string="IVA (%)"/>
+                        <field name="iva" /><br/>
+                        <label for="total" string="Costo total de la película"/>
                         <field name="total" />
                     </page>
                 </notebook>

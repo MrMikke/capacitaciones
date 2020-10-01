@@ -5,7 +5,7 @@
       <field name="model">cvp.studio</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="nombre_studio" string="Nombre del studio"/>
+          <field name="name" string="Nombre del studio"/>
           <field name="peliculas" string="Peliculas asociadas"/>
         </tree>
       </field>
@@ -16,8 +16,8 @@
           <field name="arch" type="xml">
             <form>
               <sheet>
-                  <label for="nombre_studio" string="Nombre del studio"/>
-                  <field name="nombre_studio" /><br/>
+                  <label for="name" string="Nombre del studio"/>
+                  <field name="name" /><br/>
                   <label for="peliculas" string="Peliculas asociadas"/>
                   <field name="peliculas" widget="many2many"/><br/>
 <!--                   <label for="descripcion" string="Nombre de la descripcion"/>
