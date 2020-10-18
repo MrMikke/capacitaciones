@@ -16,3 +16,8 @@ class academy(models.Model):
 #     def _value_pc(self):
 #         for record in self:
 #             record.value2 = float(record.value) / 100
+
+class Teachers(models.Model):
+    _name = 'academy.teachers'
+
+    name = fields.Char()
