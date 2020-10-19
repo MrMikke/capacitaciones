@@ -30,7 +30,8 @@
         'views/cyp_wizard_views.xml',
         'views/herencia_vista.xml',
         'views/grupos_nuevos.xml',
-        'reports/cyp_alumnos_report.xml'
+        'reports/cyp_alumnos_report.xml',
+        'views/herencia_contactos.xml'
     ],
     # only loaded in demonstration mode
     'demo': [

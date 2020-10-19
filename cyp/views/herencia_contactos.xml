@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <record id="herencia_contactos" model="ir.ui.view">
+            <field name="name">res partner contactos</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- find field description and add the field
+                     idea_ids after it -->
+                <xpath expr="//field[@name='category_id']" position="after">
+                    
+                        <field name="preferencias" string="PREFERENCIAS HERENCIA"/>
+                    
+
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

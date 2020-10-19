@@ -111,7 +111,7 @@ class cyp_wizard_alumnos(models.TransientModel):
         
 
     
-class res_partner_herencia(models.Model):
+class cyp_herencia_contactos(models.Model):
     _inherit="res.partner"
     
     preferencias=fields.Char(
