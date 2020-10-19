@@ -26,14 +26,18 @@
                   <!-- VARIABLE NUMERICA -->
                   <t t-set="mi_variable2" t-value="0.00"/>
                   <!-- CONDICION -->
-                  <t t-esc="mi_variable"/>
+                  <span><t t-esc="mi_variable"/></span>
+                  
+                  
                   <t t-if="mi_variable=='HOLA'">
                       <t t-set="mi_variable" t-value="CONDICION_TRUE"/>
-                      
                   </t>
                   <t t-else="">
                       <t t-set="mi_variable" t-value="CONDICION_FALSE"/>
                   </t>
+                  
+                  
+                  
                   <span><t t-esc="mi_variable"/></span>
                   <span><t t-esc="doc.valor_active_id"/></span>
                   <span><t t-esc="doc.valor_active_model"/></span>

@@ -43,6 +43,12 @@ class alumnos(models.Model):
     recursador=fields.Boolean(
         string="¿Es recursador?"
     )
+    estatus = fields.Selection([ 
+        ('A', 'ACTIVO'),
+        ('I', 'INACTIVO'),
+        ],
+    default='A'
+    )
     alumnos = fields.One2many(
         'cyp.materias',
         'alumno',
@@ -102,7 +108,14 @@ class cyp_wizard_alumnos(models.TransientModel):
     def imprimir(self):
         for rec in self:
             return self.env.ref('cyp.cyp_wizard_alumnos_report').report_action(self)
+        
+
     
+class res_partner_herencia(models.Model):
+    _inherit="res.partner"
     
+    preferencias=fields.Char(
+        string="Preferencias"
+    )
     
     

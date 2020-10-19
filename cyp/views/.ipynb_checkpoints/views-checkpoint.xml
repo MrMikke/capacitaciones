@@ -37,17 +37,20 @@
         <field name="model">cyp.alumnos</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <field name="estatus" widget="statusbar"/>
+                </header>
                 <sheet>
                         <div class="oe_button_box" name="button_box">
-                            <button class="oe_stat_button" name="%(cyp.act_cyp_alumno_2_cyp_materias)d" type="action" icon="fa-book" >
+                            <button class="oe_stat_button" name="%(cyp.act_cyp_alumno_2_cyp_materias)d" type="action" icon="fa-book"  groups="cyp.admin_cyp_group">
                                 <field string="Materias" name="cyp_materias_count" widget="statinfo"/>
                             </button>
                         </div>
                     
-                            <label for="name" string="nombre"/>
-                            <field name="name" /><br/>
+                            <label for="name" string="nombre" attrs="{'invisible':[('name','=','HUGO')]}"/>/>
+                            <field name="name" attrs="{'invisible':[('name','=','HUGO')]}"/><br/>
                             <label for="alumnos" string="ALUMNOS"/>
-                            <field name="alumnos" widget="many2many" /><br/> <!-- domain="[('id','!=','1')]" -->
+                            <field name="alumnos"  widget="many2many" /><br/> <!-- domain="[('id','!=','1')]" -->
         <!--                     <label for="alumnos2" string="Alumno many2one"/>
                             <field name="alumnos2"/><br/>
                             <label for="alumnos3" string="Alumno many2many"/>
@@ -83,6 +86,7 @@
         <field name="model">cyp.materias</field>
         <field name="arch" type="xml">
             <form>
+                
                 <label for="name" string="nombre"/>
                 <field name="name"/><br/>
                 <label for="alumno" string="Alumno one2many"/>

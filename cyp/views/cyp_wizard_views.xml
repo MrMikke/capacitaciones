@@ -28,6 +28,6 @@
                     view_mode="form"
                     target="new"
                     context="{'default_valor_active_id':active_id,'default_valor_active_model':active_model}"
-                    />
+                />
     </data>
 </odoo>
