@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="ldc.list">
+      <field name="name">ldc list</field>
+      <field name="model">ldc.ldc</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="ldc.action_window">
+      <field name="name">ldc window</field>
+      <field name="res_model">ldc.ldc</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="ldc.action_server">
+      <field name="name">ldc server</field>
+      <field name="model_id" ref="model_ldc_ldc"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="ldc" id="ldc.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="ldc.menu_1" parent="ldc.menu_root"/>
+    <menuitem name="Menu 2" id="ldc.menu_2" parent="ldc.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="ldc.menu_1_list" parent="ldc.menu_1"
+              action="ldc.action_window"/>
+    <menuitem name="Server to list" id="ldc" parent="ldc.menu_2"
+              action="ldc.action_server"/>
+-->
+  </data>
+</odoo>
