@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="form_cvp_peliculas_view">
+            <field name="name">Wizard cvp peliculas</field>
+            <field name="model">cvp.wizard_peliculas</field>
+            <field name="arch" type="xml">
+                <form string="Add Attendees">
+                    <label for="name">Nombre</label><br/>
+                    <field name="name" string="name" readonly="1"/>
+                    <br/>
+                    <label for="sinopsis">Sinopsis</label><br/>
+                    <field name="sinopsis" string="sinopsis" readonly="1"/>
+                    <br/>
+                    <label for="fecha_lanzamiento">Fecha de lanzamiento</label><br/>
+                    <field name="fecha_lanzamiento" string="fecha_lanzamiento" readonly="1"/>
+                    <br/>
+                    <label for="longitud_minutos">Duración</label><br/>
+                    <field name="longitud_minutos" readonly="1"/>
+                    
+                    <field name="genero" string="genero" readonly="1"/>
+                    
+                    <label for="peliculas">Películas para reporte</label><br/>
+                    <field name="peliculas"/>
+                    
+                    <field name="valor_active_id" string="valor_active_id" invisible="1"/>
+                    <field name="valor_active_model" string="valor_active_model" invisible="1"/>
+                    <footer>
+                        <button name="imprimir"
+                            string="IMPRIMIR" type="object"
+                            class="btn-primary oe_highlight"
+                        />
+                        <button string="CERRAR"
+                            class="btn-default"
+                            special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="launch_cvp_wizard_peliculas"
+                    name="Generar reporte - peliculas"
+                    binding_model="cvp.peliculas"
+                    res_model="cvp.wizard_peliculas"
+                    view_mode="form"
+                    target="new"
+                    context="{'default_valor_active_id':active_id,'default_valor_active_model':active_model}"
+                    />
+    </data>
+</odoo>

@@ -1,0 +1,76 @@
+<odoo>
+    <data>
+        <report id="cvp_wizard_peliculas_report"
+                model="cvp.wizard_peliculas"
+                string="Wizard peliculas"
+                report_type="qweb-pdf"
+                name="cvp.cvp_wizard_peliculas"
+                file="cvp.cvp_wizard_peliculas_report"
+                attachment_use="True"
+                print_report_name="(object.id)"
+                paperformat="base.paperformat_us" />
+
+        <template id="cvp_wizard_peliculas">
+            <t t-call="web.html_container">
+                <div style="text-align:center;">
+                    <t t-foreach="docs" t-as="doc">
+                        <div class="header" style="text-align: center;">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <span>
+                              REPORTE DE PELÍCULAS
+                            </span>
+                        </div>
+
+                        <!--  POR CADA LIBRO  -->
+                        <t t-foreach="doc.peliculas" t-as="pelicula">
+                            <t t-set="inicial" t-value="pelicula.longitud_minutos / 60"/>
+                            <t t-set="horas" t-value="int(pelicula.longitud_minutos / 60)"/>
+                            <t t-set="minutos" t-value="int(((pelicula.longitud_minutos / 60) - horas) * 60)"/>
+                            
+                            <t t-if="minutos &lt; 10">
+                                <t t-set="duracion" t-value="'0' + str(horas) + ' : 0' + str(minutos) + ' : 00'"/>
+                            </t>
+                            <t t-else="">
+                                <t t-set="duracion" t-value="'0' + str(horas) + ' : ' + str(minutos) + ' : 00'"/>
+                            </t>
+                            
+                            <table border="1" style="margin: 0 auto;">
+                                <tr>
+                                    <th height="50" width="100%" colspan="4">
+                                        <b><t t-esc="pelicula.name"/></b>
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="4" style="text-align: center;">
+                                        <t t-esc="pelicula.sinopsis"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td height="50" width="200" style="text-align: center;">
+                                        Fecha de lanzamiento<br/><t t-esc="pelicula.fecha_lanzamiento"/>
+                                    </td>
+                                    <td height="50" width="200" style="text-align: center;">
+                                        Duración<br/><t t-esc="duracion"/>
+                                    </td>
+                                    <td height="50" width="200" style="text-align: center;">
+                                        Genero<br/>
+                                        <t t-foreach="pelicula.genero" t-as="genero">
+                                          <span><t t-esc="genero.name"/> </span>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <br/>
+                            <br/>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

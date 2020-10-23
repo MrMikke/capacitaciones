@@ -1,0 +1,85 @@
+<odoo>
+    <data>
+        <!-- VISTA TREE -->
+        <record model="ir.ui.view" id="cvp.peliculas_tree">
+            <field name="name">cvp peliculas tree</field>
+            <field name="model">cvp.peliculas</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="fecha_lanzamiento"/>
+                    <field name="director"/>
+                    <field name="studio"/>
+                    <field name="iva" widget="progressbar" />
+                </tree>
+            </field>
+        </record>
+        <!-- VISTA FORM -->
+        <record model="ir.ui.view" id="cvp.peliculas_form">
+            <field name="name">cvp peliculas form</field>
+            <field name="model">cvp.peliculas</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <header>
+                            <field name="state" widget="statusbar"/>
+                            <button name="create_sale" type="object" class="oe_highlight" string="Generar Venta" confirm="Seguro que desea generar venta?"  
+                                    attrs="{'invisible':[('state','=','I')]}"/>
+                            <button name="create_purchase" type="object" class="oe_highlight" string="Generar Compra" confirm="Seguro que desea generar compra?"
+                                    attrs="{'invisible':[('state','=','I')]}"/>
+                            <button name="activate" type="object" class="oe_highlight" string="Activar" confirm="Seguro que desea ACTIVAR la pelicula?"
+                                    attrs="{'invisible':[('state','=','A')]}"/>
+                            <button name="inactive" type="object" class="oe_highlight" string="Desactivar" confirm="Seguro que desea DESACTIVAR la pelicula?"
+                                    attrs="{'invisible':[('state','=','I')]}"/>
+                        </header>
+                        <label for="name" string="Titulo"/>
+                        <field name="name" string="Titulo"
+                               attrs="{'readonly':[('state','=','I')]}"/><br/>
+                        <group>
+                            <group>
+                                <field name="imagen_pelicula" widget="image" attrs="{'readonly':[('state','=','I')]}"/>
+                            </group>
+                            <group>
+                                <field name="fecha_lanzamiento" string="fecha_lanzamiento" options="{'datepicker':{'maxDate': 'now'}}" 
+                                       attrs="{'readonly':[('state','=','I')]}"/>
+                                <field name="longitud_minutos" string="longitud_minutos"
+                                       attrs="{'readonly':[('state','=','I')]}"/>
+                                
+                                <field name="studio" string="Estudio"
+                                       attrs="{'readonly':[('state','=','I')]}"/>
+                                <field name="director" string="Director"
+                                       attrs="{'readonly':[('state','=','I')]}" />
+                                <field name="producto_asociado" string="Producto"
+                                       attrs="{'readonly':[('state','=','I')]}"/>
+                                <field name="sinopsis" string="Sinopsis"
+                                       attrs="{'readonly':[('state','=','I')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Costos">
+                                <label for="costo_pelicula" string="Costo de la pelicula"/>
+                                <field name="costo_pelicula" string="Costo de pelicula"
+                                       attrs="{'readonly':[('state','=','I')]}"/><br/>
+                                <label for="costo_pelicula" string="Iva"/>
+                                <field name="iva" string="Iva"
+                                       attrs="{'readonly':[('state','=','I')]}"/><br/>
+                                <label for="total" string="total"/>
+                                <field name="total" string="Total"/>
+                            </page>
+                            <page string="Actores" attrs="{'readonly':[('state','=','I')]}">
+                                <field name="actores" string="Actores" widget="many2many"
+                                       attrs="{'readonly':[('state','=','I')]}" />
+                            </page>
+                            <page string="Generos" attrs="{'readonly':[('state','=','I')]}">
+                                <field name="genero" widget="many2many"
+                                       attrs="{'readonly':[('state','=','I')]}"/>
+                            </page>
+                        </notebook>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+    </data>
+</odoo>
