@@ -80,6 +80,15 @@
                 </form>
             </field>
         </record>
-        
+        <!-- VISTA SEARCH ESTO LO AGREGUE -->
+        <record id="search_cvp_peliculas" model="ir.ui.view">
+            <field name="name">Search Peliculas</field>
+            <field name="model">cvp.peliculas</field>
+            <field name="arch" type="xml">
+                <search string="Search">
+                    <field name="genero" string="Genero"/>
+                </search>
+            </field>
+        </record> 
     </data>
 </odoo>
